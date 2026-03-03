@@ -28,11 +28,21 @@ inicializarEnvio();
 
 // ---- Carga de datos del backend (login → agencias) ----
 (async () => {
+    // Login y agencias se ejecutan de forma independiente:
+    // si login falla, las agencias aún intentan cargarse del backend.
+    // Si obtenerAgencias también falla, se usan las agencias por defecto (hardcoded).
+
     try {
         await login();
-        await obtenerAgencias();
-        console.log('✅ Login y agencias cargadas correctamente');
+        console.log('✅ Login exitoso');
     } catch (error) {
-        console.error('❌ Error en inicialización:', error);
+        console.warn('⚠️ Error en login, continuando con agencias por defecto:', error);
+    }
+
+    try {
+        await obtenerAgencias();
+        console.log('✅ Agencias cargadas desde el backend');
+    } catch (error) {
+        console.warn('⚠️ Error al obtener agencias del backend, usando lista por defecto:', error);
     }
 })();
