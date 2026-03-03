@@ -2,9 +2,6 @@
 #  VendeYa Frontend — .gitignore
 # ============================================================
 
-# --- Datos confidenciales ---
-js/config.env.js
-
 # --- Dependencias ---
 node_modules/
 
