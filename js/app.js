@@ -13,7 +13,7 @@ import { inicializarFormulario } from './services/formulario.service.js';
 import { inicializarEnvio } from './services/envio.service.js';
 
 // --- API ---
-import { login } from '../api/login.js';
+import { login } from './services/login.js';
 import { obtenerAgencias } from '../data/agencias.js';
 
 // ---- Funciones globales (necesarias para onclick en HTML) ----

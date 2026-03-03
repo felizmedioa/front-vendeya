@@ -1,7 +1,7 @@
 // ============================================================
 //  Servicio de Login — Obtiene token de autenticación
 // ============================================================
-import { URL_BACKEND } from '../js/config.js';
+import { URL_BACKEND } from '../config.js';
 
 /**
  * Solicita un token de autenticación al backend.
