@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pedido - Spitech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/modal-responsive.css" />
+    <style>
+        #mapa-selector {
+            height: 300px;
+            width: 100%;
+            border-radius: 0.5rem;
+            z-index: 0;
+        }
+
+        .leaflet-container {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-start min-h-screen p-6">
+
+    <div class="w-full max-w-3xl bg-white p-8 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-2 text-gray-800">Registro de Pedido</h2>
+        <p class="text-sm text-gray-500 mb-6">Completa los datos para coordinar tu entrega.</p>
+
+        <form id="pedidoForm" class="space-y-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Nombre completo *</label>
+                    <input type="text" id="nombre_completo" required class="w-full p-2 border rounded mt-1">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">DNI *</label>
+                    <input type="text" id="dni" required class="w-full p-2 border rounded mt-1">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">WhatsApp *</label>
+                <input type="text" id="whatsapp" required placeholder="+51..." class="w-full p-2 border rounded mt-1">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Producto *</label>
+                <input type="text" id="producto" required class="w-full p-2 border rounded mt-1">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Método de Pago *</label>
+                    <select id="metodo_pago" required class="w-full p-2 border rounded mt-1">
+                        <option value="Yape">Yape</option>
+                        <option value="Plin">Plin</option>
+                        <option value="Transferencia">Transferencia</option>
+                        <option value="Tarjeta">Tarjeta (5% recargo)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Monto Restante (S/)</label>
+                    <input type="number" id="valor_restante" step="0.01" class="w-full p-2 border rounded mt-1">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Fecha *</label>
+                    <input type="date" id="fecha" required class="w-full p-2 border rounded mt-1">
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Tipo de Envío *</label>
+                <select id="tipo_envio" class="w-full p-2 border rounded mt-1 font-bold text-blue-800">
+                    <option value="">Seleccione...</option>
+                    <option value="Lima">Envío a Lima (Motorizado)</option>
+                    <option value="Provincia">Envío a Provincia (Shalom/Olva)</option>
+                </select>
+            </div>
+
+            <div id="seccionLima" class="hidden space-y-4 border p-4 rounded bg-blue-50">
+                <h3 class="font-bold text-blue-800">Ubicación de Entrega</h3>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Distrito *</label>
+                    <select id="distrito_lima" class="w-full p-2 border rounded mt-1 bg-white" contenteditable="true">
+                        <option value="">Selecciona tu distrito...</option>
+                        <optgroup label="📍 LIMA CENTRO">
+                            <option value="Cercado de Lima">Cercado de Lima</option>
+                            <option value="Breña">Breña</option>
+                            <option value="Jesús María">Jesús María</option>
+                            <option value="La Victoria">La Victoria</option>
+                            <option value="Lince">Lince</option>
+                            <option value="Magdalena del Mar">Magdalena del Mar</option>
+                            <option value="Miraflores">Miraflores</option>
+                            <option value="Pueblo Libre">Pueblo Libre</option>
+                            <option value="San Borja">San Borja</option>
+                            <option value="San Isidro">San Isidro</option>
+                            <option value="San Luis">San Luis</option>
+                            <option value="San Miguel">San Miguel</option>
+                            <option value="Santiago de Surco">Santiago de Surco</option>
+                            <option value="Surquillo">Surquillo</option>
+                            <option value="Barranco">Barranco</option>
+                            <option value="Rímac">Rímac</option>
+                        </optgroup>
+                        <optgroup label="🔼 CONO NORTE">
+                            <option value="Ancón">Ancón</option>
+                            <option value="Carabayllo">Carabayllo</option>
+                            <option value="Comas">Comas</option>
+                            <option value="Independencia">Independencia</option>
+                            <option value="Los Olivos">Los Olivos</option>
+                            <option value="Puente Piedra">Puente Piedra</option>
+                            <option value="San Martín de Porres">San Martín de Porres</option>
+                            <option value="Santa Rosa">Santa Rosa</option>
+                        </optgroup>
+                        <optgroup label="🔽 CONO SUR">
+                            <option value="Chorrillos">Chorrillos</option>
+                            <option value="Lurín">Lurín</option>
+                            <option value="Pachacámac">Pachacámac</option>
+                            <option value="Pucusana">Pucusana</option>
+                            <option value="Punta Hermosa">Punta Hermosa</option>
+                            <option value="Punta Negra">Punta Negra</option>
+                            <option value="San Bartolo">San Bartolo</option>
+                            <option value="San Juan de Miraflores">San Juan de Miraflores</option>
+                            <option value="Santa María del Mar">Santa María del Mar</option>
+                            <option value="Villa El Salvador">Villa El Salvador</option>
+                            <option value="Villa María del Triunfo">Villa María del Triunfo</option>
+                        </optgroup>
+                        <optgroup label="▶️ CONO ESTE">
+                            <option value="Ate">Ate</option>
+                            <option value="Cieneguilla">Cieneguilla</option>
+                            <option value="Chaclacayo">Chaclacayo</option>
+                            <option value="El Agustino">El Agustino</option>
+                            <option value="La Molina">La Molina</option>
+                            <option value="Lurigancho">Lurigancho (Chosica)</option>
+                            <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
+                            <option value="Santa Anita">Santa Anita</option>
+                        </optgroup>
+                        <optgroup label="⚓ CALLAO">
+                            <option value="Callao">Callao</option>
+                            <option value="Bellavista">Bellavista</option>
+                            <option value="Carmen de La Legua">Carmen de La Legua</option>
+                            <option value="La Perla">La Perla</option>
+                            <option value="La Punta">La Punta</option>
+                            <option value="Mi Perú">Mi Perú</option>
+                            <option value="Ventanilla">Ventanilla</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Mueve el Pin 📍 a tu ubicación
+                        exacta:</label>
+                    <div id="mapa-selector"></div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Dirección o Link de Ubicación *</label>
+                    <input type="text" id="direccion_link"
+                        placeholder="Elegir lo más sencillo para ubicarlo por Google Maps"
+                        class="w-full p-2 border rounded mt-1">
+                    <p class="text-xs text-blue-600 mt-1">Puedes pegar un enlace de Google Maps o escribir la dirección
+                        exacta.</p>
+                </div>
+
+                <input type="hidden" id="latitud">
+                <input type="hidden" id="longitud">
+            </div>
+
+            <div id="seccionProvincia" class="hidden space-y-4 border p-4 rounded bg-orange-50">
+                <h3 class="font-bold text-orange-800">Datos de Agencia</h3>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Agencia de destino</label>
+                    <div class="flex flex-col gap-0 mt-1">
+                        <!-- Input que abre el modal al hacer clic -->
+                        <input type="text" id="agencia_provincia" placeholder="Toca aquí para seleccionar agencia..."
+                            readonly
+                            class="flex-1 p-3 border rounded cursor-pointer bg-white hover:bg-gray-50 transition"
+                            onclick="abrirModalAgencias()">
+                        <!-- Input oculto para guardar el value formateado -->
+                        <input type="hidden" id="agencia_value">
+                    </div>
+                    <a href="https://agencias.shalom.pe" class="text-xs text-gray-500 mt-1 underline" target="_blank"
+                        rel="noopener noreferrer">Buscar agencias
+                        por
+                        direccion Aquí</a>
+                </div>
+            </div>
+
+            <button type="submit" id="btnSubmit"
+                class="w-full bg-black text-white font-bold py-3 rounded hover:bg-gray-800 transition shadow-lg mt-6">
+                Registrar Pedido
+            </button>
+
+        </form>
+    </div>
+
+    <!-- MODAL BOXSELECT -->
+    <div id="modalBackdropAgencias" class="fixed inset-0 bg-black/10 backdrop-blur-custom z-50 hidden"
+        onclick="cerrarModalBackdropAgencias(event)">
+        <!-- Box Select Container -->
+        <div id="boxSelectAgencias" class="bg-white shadow-2xl z-50 flex flex-col" onclick="event.stopPropagation()">
+            <!-- Header del modal con input de búsqueda -->
+            <div class="p-4 border-b bg-white sticky top-0">
+                <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-3 md:hidden"></div>
+                <input type="text" id="inputBusquedaModal" placeholder="Buscar agencia..."
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+            </div>
+
+            <!-- Lista scrolleable de agencias -->
+            <div class="flex-1 overflow-y-auto">
+                <ul id="listaAgenciasModal" class="list-none p-0 m-0">
+                    <!-- Los items se agregan dinámicamente -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>

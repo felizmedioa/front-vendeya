@@ -1,0 +1,137 @@
+/* =============================================
+   MODAL BOXSELECT - Estilos Responsivos
+   - Móvil: Modal desde abajo (slideUp)
+   - Tablet/Desktop: Panel lateral derecho (slideLeft)
+   ============================================= */
+
+/* --- Animaciones Base --- */
+
+/* Animación para móvil: desde abajo */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* Animación para desktop: desde la derecha */
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* --- Backdrop --- */
+.backdrop-blur-custom {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* --- Estados de animación por defecto (Móvil) --- */
+.modal-enter {
+    animation: slideUp 0.3s ease-out forwards;
+}
+
+.modal-exit {
+    animation: slideDown 0.3s ease-in forwards;
+}
+
+/* --- Estilos del Modal BoxSelect (Móvil por defecto) --- */
+#boxSelectAgencias {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    height: 66.666667%;
+    /* h-2/3 */
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    /* rounded-t-2xl */
+    transform: translateX(0);
+}
+
+/* =============================================
+   MEDIA QUERIES - Tablet y Desktop (768px+)
+   ============================================= */
+@media (min-width: 768px) {
+
+    /* Cambiar animación a slideLeft/slideRight */
+    .modal-enter {
+        animation: slideLeft 0.3s ease-out forwards;
+    }
+
+    .modal-exit {
+        animation: slideRight 0.3s ease-in forwards;
+    }
+
+    /* Reposicionar modal como panel lateral derecho */
+    #boxSelectAgencias {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        width: 400px;
+        max-width: 100%;
+        height: 100%;
+        border-radius: 0;
+        /* Sin bordes redondeados en lateral */
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Ajustar el header del modal para panel lateral */
+    #boxSelectAgencias>div:first-child {
+        border-radius: 0;
+        padding-top: 1.5rem;
+    }
+
+    /* Ocultar la barrita de arrastre en desktop */
+    #boxSelectAgencias .md\:hidden {
+        display: none;
+    }
+}
+
+/* =============================================
+   MEDIA QUERIES - Desktop Grande (1024px+)
+   ============================================= */
+@media (min-width: 1024px) {
+    #boxSelectAgencias {
+        width: 450px;
+    }
+}
