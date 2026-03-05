@@ -45,7 +45,7 @@ function recolectarDatosFormulario() {
         direccion_link: document.getElementById('direccion_link').value,
         lat: document.getElementById('latitud').value,
         lng: document.getElementById('longitud').value,
-        agencia: document.getElementById('agencia_provincia').value
+        agencia: document.getElementById('agencia_value').value
     };
 }
 
