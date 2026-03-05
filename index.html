@@ -63,7 +63,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Monto Restante (S/)</label>
-                    <input type="number" id="valor_restante" step="0.01" class="w-full p-2 border rounded mt-1">
+                    <input type="number" id="valor_restante" step="1.0" required class="w-full p-2 border rounded mt-1">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Fecha *</label>
@@ -75,7 +75,7 @@
 
             <div>
                 <label class="block text-sm font-medium text-gray-700">Tipo de Envío *</label>
-                <select id="tipo_envio" class="w-full p-2 border rounded mt-1 font-bold text-blue-800">
+                <select id="tipo_envio" required class="w-full p-2 border rounded mt-1 font-bold text-blue-800">
                     <option value="">Seleccione...</option>
                     <option value="Lima">Envío a Lima (Motorizado)</option>
                     <option value="Provincia">Envío a Provincia (Shalom/Olva)</option>
@@ -89,66 +89,55 @@
                     <label class="block text-sm font-medium text-gray-700">Distrito *</label>
                     <select id="distrito_lima" class="w-full p-2 border rounded mt-1 bg-white" contenteditable="true">
                         <option value="">Selecciona tu distrito...</option>
-                        <optgroup label="📍 LIMA CENTRO">
-                            <option value="Cercado de Lima">Cercado de Lima</option>
-                            <option value="Breña">Breña</option>
-                            <option value="Jesús María">Jesús María</option>
-                            <option value="La Victoria">La Victoria</option>
-                            <option value="Lince">Lince</option>
-                            <option value="Magdalena del Mar">Magdalena del Mar</option>
-                            <option value="Miraflores">Miraflores</option>
-                            <option value="Pueblo Libre">Pueblo Libre</option>
-                            <option value="San Borja">San Borja</option>
-                            <option value="San Isidro">San Isidro</option>
-                            <option value="San Luis">San Luis</option>
-                            <option value="San Miguel">San Miguel</option>
-                            <option value="Santiago de Surco">Santiago de Surco</option>
-                            <option value="Surquillo">Surquillo</option>
-                            <option value="Barranco">Barranco</option>
-                            <option value="Rímac">Rímac</option>
-                        </optgroup>
-                        <optgroup label="🔼 CONO NORTE">
-                            <option value="Ancón">Ancón</option>
-                            <option value="Carabayllo">Carabayllo</option>
-                            <option value="Comas">Comas</option>
-                            <option value="Independencia">Independencia</option>
-                            <option value="Los Olivos">Los Olivos</option>
-                            <option value="Puente Piedra">Puente Piedra</option>
-                            <option value="San Martín de Porres">San Martín de Porres</option>
-                            <option value="Santa Rosa">Santa Rosa</option>
-                        </optgroup>
-                        <optgroup label="🔽 CONO SUR">
-                            <option value="Chorrillos">Chorrillos</option>
-                            <option value="Lurín">Lurín</option>
-                            <option value="Pachacámac">Pachacámac</option>
-                            <option value="Pucusana">Pucusana</option>
-                            <option value="Punta Hermosa">Punta Hermosa</option>
-                            <option value="Punta Negra">Punta Negra</option>
-                            <option value="San Bartolo">San Bartolo</option>
-                            <option value="San Juan de Miraflores">San Juan de Miraflores</option>
-                            <option value="Santa María del Mar">Santa María del Mar</option>
-                            <option value="Villa El Salvador">Villa El Salvador</option>
-                            <option value="Villa María del Triunfo">Villa María del Triunfo</option>
-                        </optgroup>
-                        <optgroup label="▶️ CONO ESTE">
-                            <option value="Ate">Ate</option>
-                            <option value="Cieneguilla">Cieneguilla</option>
-                            <option value="Chaclacayo">Chaclacayo</option>
-                            <option value="El Agustino">El Agustino</option>
-                            <option value="La Molina">La Molina</option>
-                            <option value="Lurigancho">Lurigancho (Chosica)</option>
-                            <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
-                            <option value="Santa Anita">Santa Anita</option>
-                        </optgroup>
-                        <optgroup label="⚓ CALLAO">
-                            <option value="Callao">Callao</option>
-                            <option value="Bellavista">Bellavista</option>
-                            <option value="Carmen de La Legua">Carmen de La Legua</option>
-                            <option value="La Perla">La Perla</option>
-                            <option value="La Punta">La Punta</option>
-                            <option value="Mi Perú">Mi Perú</option>
-                            <option value="Ventanilla">Ventanilla</option>
-                        </optgroup>
+                        <option value="Ancón">Ancón</option>
+                        <option value="Ate">Ate</option>
+                        <option value="Barranco">Barranco</option>
+                        <option value="Bellavista">Bellavista</option>
+                        <option value="Breña">Breña</option>
+                        <option value="Carabayllo">Carabayllo</option>
+                        <option value="Carmen de La Legua">Carmen de La Legua</option>
+                        <option value="Cercado de Lima">Cercado de Lima</option>
+                        <option value="Chaclacayo">Chaclacayo</option>
+                        <option value="Chorrillos">Chorrillos</option>
+                        <option value="Cieneguilla">Cieneguilla</option>
+                        <option value="Comas">Comas</option>
+                        <option value="El Agustino">El Agustino</option>
+                        <option value="Independencia">Independencia</option>
+                        <option value="Jesús María">Jesús María</option>
+                        <option value="La Molina">La Molina</option>
+                        <option value="La Perla">La Perla</option>
+                        <option value="La Punta">La Punta</option>
+                        <option value="La Victoria">La Victoria</option>
+                        <option value="Los Olivos">Los Olivos</option>
+                        <option value="Lince">Lince</option>
+                        <option value="Lurigancho">Lurigancho (Chosica)</option>
+                        <option value="Lurín">Lurín</option>
+                        <option value="Magdalena del Mar">Magdalena del Mar</option>
+                        <option value="Mi Perú">Mi Perú</option>
+                        <option value="Miraflores">Miraflores</option>
+                        <option value="Pachacámac">Pachacámac</option>
+                        <option value="Pucusana">Pucusana</option>
+                        <option value="Pueblo Libre">Pueblo Libre</option>
+                        <option value="Puente Piedra">Puente Piedra</option>
+                        <option value="Punta Hermosa">Punta Hermosa</option>
+                        <option value="Punta Negra">Punta Negra</option>
+                        <option value="Rímac">Rímac</option>
+                        <option value="San Borja">San Borja</option>
+                        <option value="San Isidro">San Isidro</option>
+                        <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
+                        <option value="San Juan de Miraflores">San Juan de Miraflores</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="San Miguel">San Miguel</option>
+                        <option value="San Martín de Porres">San Martín de Porres</option>
+                        <option value="San Bartolo">San Bartolo</option>
+                        <option value="Santa Anita">Santa Anita</option>
+                        <option value="Santa María del Mar">Santa María del Mar</option>
+                        <option value="Santa Rosa">Santa Rosa</option>
+                        <option value="Santiago de Surco">Santiago de Surco</option>
+                        <option value="Surquillo">Surquillo</option>
+                        <option value="Ventanilla">Ventanilla</option>
+                        <option value="Villa El Salvador">Villa El Salvador</option>
+                        <option value="Villa María del Triunfo">Villa María del Triunfo</option>
                     </select>
                 </div>
 

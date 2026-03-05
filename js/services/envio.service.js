@@ -84,10 +84,13 @@ export function inicializarEnvio() {
         const data = recolectarDatosFormulario();
 
         // Envíos paralelos e independientes
-        const [sheetsResult, apiResult] = await Promise.allSettled([
-            enviarAGoogleSheets(data),
-            enviarABackend()
-        ]);
+        const promesas = [enviarAGoogleSheets(data)];
+        if (data.tipo_envio === 'Provincia') {
+            promesas.push(enviarABackend());
+        }
+
+        const resultados = await Promise.allSettled(promesas);
+        const sheetsResult = resultados[0];
 
         // Logs de resultados
         if (sheetsResult.status === 'fulfilled') {
@@ -96,10 +99,13 @@ export function inicializarEnvio() {
             console.error('❌ Error en Google Sheets:', sheetsResult.reason);
         }
 
-        if (apiResult.status === 'fulfilled') {
-            console.log('✅ Backend API OK');
-        } else {
-            console.error('❌ Error en Backend API:', apiResult.reason);
+        if (data.tipo_envio === 'Provincia') {
+            const apiResult = resultados[1];
+            if (apiResult.status === 'fulfilled') {
+                console.log('✅ Backend API OK');
+            } else {
+                console.error('❌ Error en Backend API:', apiResult.reason);
+            }
         }
 
         // Siempre ofrecer WhatsApp, sin importar los resultados
