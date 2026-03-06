@@ -1,8 +1,6 @@
-// --- Lista de Agencias Shalom ---
-import { URL_BACKEND } from "../js/config.js";
+// --- Lista de Agencias Shalom (hardcoded) ---
 
-
-export let Agencias = [
+export const Agencias = [
     {
         "id": 2,
         "nombre": "CAJAMARCA / HUALGAYOC / BAMBAMARCA / BAMBAMARCA",
@@ -44,11 +42,6 @@ export let Agencias = [
         "nombre_resumido": "ABANCAY"
     },
     {
-        "id": 16,
-        "nombre": "LIMA / BARRANCA / BARRANCA / BARRANCA",
-        "nombre_resumido": "BARRANCA"
-    },
-    {
         "id": 17,
         "nombre": "ANCASH / SANTA / CHIMBOTE / AV ENRIQUE MEIGGS",
         "nombre_resumido": "AV ENRIQUE MEIGGS"
@@ -59,11 +52,6 @@ export let Agencias = [
         "nombre_resumido": "CUSCO PARQUE INDUSTRIAL"
     },
     {
-        "id": 19,
-        "nombre": "LIMA / HUAURA / HUACHO / SALAVERRY HUACHO CO",
-        "nombre_resumido": "SALAVERRY HUACHO CO"
-    },
-    {
         "id": 20,
         "nombre": "MOQUEGUA / ILO / ILO / ILO CO PAMPA INALAMBRICA",
         "nombre_resumido": "ILO CO PAMPA INALAMBRICA"
@@ -72,11 +60,6 @@ export let Agencias = [
         "id": 21,
         "nombre": "AYACUCHO / HUAMANGA / AYACUCHO / AYACUCHO CO",
         "nombre_resumido": "AYACUCHO CO"
-    },
-    {
-        "id": 22,
-        "nombre": "LIMA / CAÑETE / SAN VICENTE DE CANET / CAÑETE SAN VICENTE",
-        "nombre_resumido": "CAÑETE SAN VICENTE"
     },
     {
         "id": 23,
@@ -134,16 +117,6 @@ export let Agencias = [
         "nombre_resumido": "SAN ANTONIO"
     },
     {
-        "id": 43,
-        "nombre": "LIMA / LIMA / LA VICTORIA / JR. RAYMONDI",
-        "nombre_resumido": "JR. RAYMONDI"
-    },
-    {
-        "id": 45,
-        "nombre": "LIMA / LIMA / VILLA MARIA DEL TRIUNFO / LAS CONCHITAS",
-        "nombre_resumido": "LAS CONCHITAS"
-    },
-    {
         "id": 48,
         "nombre": "AMAZONAS / UTCUBAMBA / BAGUA GRANDE / BAGUA GRANDE",
         "nombre_resumido": "BAGUA GRANDE"
@@ -179,11 +152,6 @@ export let Agencias = [
         "nombre_resumido": "AV ABRAHAM VALDELOMAR CO"
     },
     {
-        "id": 60,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / HUAYCAN ENTRADA",
-        "nombre_resumido": "HUAYCAN ENTRADA"
-    },
-    {
         "id": 72,
         "nombre": "CALLAO / CALLAO / CALLAO / CALLAO FAUCETT",
         "nombre_resumido": "CALLAO FAUCETT"
@@ -194,29 +162,9 @@ export let Agencias = [
         "nombre_resumido": "ESPINAR"
     },
     {
-        "id": 90,
-        "nombre": "LIMA / LIMA / PACHACAMAC / LA CURVA DE MANCHAY",
-        "nombre_resumido": "LA CURVA DE MANCHAY"
-    },
-    {
-        "id": 95,
-        "nombre": "LIMA / LIMA / VILLA EL SALVADOR / AV. CESAR VALLEJO",
-        "nombre_resumido": "AV. CESAR VALLEJO"
-    },
-    {
         "id": 104,
         "nombre": "CALLAO / CALLAO / VENTANILLA / PARAD.  LOS LICENCIADOS",
         "nombre_resumido": "PARAD.  LOS LICENCIADOS"
-    },
-    {
-        "id": 123,
-        "nombre": "LIMA / LIMA / BRENA / AV VENEZUELA",
-        "nombre_resumido": "AV VENEZUELA"
-    },
-    {
-        "id": 124,
-        "nombre": "LIMA / HUARAL / HUARAL / HUARAL",
-        "nombre_resumido": "HUARAL"
     },
     {
         "id": 125,
@@ -279,11 +227,6 @@ export let Agencias = [
         "nombre_resumido": "CIUDAD MUNICIPAL"
     },
     {
-        "id": 141,
-        "nombre": "LIMA / BARRANCA / PARAMONGA / PARAMONGA",
-        "nombre_resumido": "PARAMONGA"
-    },
-    {
         "id": 142,
         "nombre": "AREQUIPA / AREQUIPA / CERRO COLORADO / ASOC LAS FLORES -  AV 54",
         "nombre_resumido": "ASOC LAS FLORES -  AV 54"
@@ -292,11 +235,6 @@ export let Agencias = [
         "id": 143,
         "nombre": "AYACUCHO / HUANTA / HUANTA / HUANTA",
         "nombre_resumido": "HUANTA"
-    },
-    {
-        "id": 144,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / CRUZ DE MOTUPE",
-        "nombre_resumido": "CRUZ DE MOTUPE"
     },
     {
         "id": 146,
@@ -324,24 +262,9 @@ export let Agencias = [
         "nombre_resumido": "AV SOCABAYA - LOS TORITOS"
     },
     {
-        "id": 156,
-        "nombre": "LIMA / CAÑETE / MALA / MALA",
-        "nombre_resumido": "MALA"
-    },
-    {
-        "id": 159,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / SJL- LAS FLORES",
-        "nombre_resumido": "SJL- LAS FLORES"
-    },
-    {
         "id": 160,
         "nombre": "LAMBAYEQUE / LAMBAYEQUE / MOTUPE / MOTUPE",
         "nombre_resumido": "MOTUPE"
-    },
-    {
-        "id": 161,
-        "nombre": "LIMA / HUARAL / CHANCAY / CHANCAY",
-        "nombre_resumido": "CHANCAY"
     },
     {
         "id": 162,
@@ -374,39 +297,9 @@ export let Agencias = [
         "nombre_resumido": "TARMA"
     },
     {
-        "id": 169,
-        "nombre": "LIMA / LIMA / LURIGANCHO / CHOSICA",
-        "nombre_resumido": "CHOSICA"
-    },
-    {
-        "id": 174,
-        "nombre": "LIMA / CAÑETE / CHILCA / AV NICOLAS DE PIEROLA  CDRA 4",
-        "nombre_resumido": "AV NICOLAS DE PIEROLA  CDRA 4"
-    },
-    {
-        "id": 175,
-        "nombre": "LIMA / LIMA / LOS OLIVOS / PRO",
-        "nombre_resumido": "PRO"
-    },
-    {
-        "id": 176,
-        "nombre": "LIMA / LIMA / RIMAC / RIMAC AV. AMANCAES",
-        "nombre_resumido": "RIMAC AV. AMANCAES"
-    },
-    {
         "id": 177,
         "nombre": "ANCASH / SANTA / NUEVO CHIMBOTE / OVALO DE LA FAMILIA",
         "nombre_resumido": "OVALO DE LA FAMILIA"
-    },
-    {
-        "id": 185,
-        "nombre": "LIMA / LIMA / VILLA MARIA DEL TRIUNFO / PESQUERO",
-        "nombre_resumido": "PESQUERO"
-    },
-    {
-        "id": 186,
-        "nombre": "LIMA / LIMA / MAGDALENA DEL MAR / MAGDALENA DEL MAR",
-        "nombre_resumido": "MAGDALENA DEL MAR"
     },
     {
         "id": 188,
@@ -414,29 +307,14 @@ export let Agencias = [
         "nombre_resumido": "CASMA"
     },
     {
-        "id": 193,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / SMP-AV. PROCERES",
-        "nombre_resumido": "SMP-AV. PROCERES"
-    },
-    {
         "id": 197,
         "nombre": "LAMBAYEQUE / CHICLAYO / TUMAN / TUMAN",
         "nombre_resumido": "TUMAN"
     },
     {
-        "id": 198,
-        "nombre": "LIMA / LIMA / PUENTE PIEDRA / ZAPALLAL",
-        "nombre_resumido": "ZAPALLAL"
-    },
-    {
         "id": 200,
         "nombre": "PIURA / PIURA / PIURA / AV. LUIS EGUIGUREN",
         "nombre_resumido": "AV. LUIS EGUIGUREN"
-    },
-    {
-        "id": 202,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / PUENTE SANTA ANITA",
-        "nombre_resumido": "PUENTE SANTA ANITA"
     },
     {
         "id": 203,
@@ -459,21 +337,6 @@ export let Agencias = [
         "nombre_resumido": "CHILCA HUANCAYO"
     },
     {
-        "id": 215,
-        "nombre": "LIMA / LIMA / VILLA MARIA DEL TRIUNFO / AV. LIMA - VMT",
-        "nombre_resumido": "AV. LIMA - VMT"
-    },
-    {
-        "id": 217,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / LOS SAUCES",
-        "nombre_resumido": "LOS SAUCES"
-    },
-    {
-        "id": 220,
-        "nombre": "LIMA / LIMA / CERCADO LIMA / MALVINAS - JR. RICARDO TRENEMAN",
-        "nombre_resumido": "MALVINAS - JR. RICARDO TRENEMAN"
-    },
-    {
         "id": 222,
         "nombre": "PIURA / PIURA / 26 DE OCTUBRE / PARQUE INDUSTRIAL CO PIURA FUTURA",
         "nombre_resumido": "PARQUE INDUSTRIAL CO PIURA FUTURA"
@@ -487,11 +350,6 @@ export let Agencias = [
         "id": 232,
         "nombre": "SAN MARTIN / MARISCAL CACERES / JUANJUI / JUANJUÍ FERNANDO BELAUNDE TERRY CO",
         "nombre_resumido": "JUANJUÍ FERNANDO BELAUNDE TERRY CO"
-    },
-    {
-        "id": 233,
-        "nombre": "LIMA / LIMA / LA VICTORIA / AV. CANADA",
-        "nombre_resumido": "AV. CANADA"
     },
     {
         "id": 234,
@@ -514,24 +372,9 @@ export let Agencias = [
         "nombre_resumido": "QUILLABAMBA"
     },
     {
-        "id": 239,
-        "nombre": "LIMA / LIMA / SAN BORJA / AVIACION 2819",
-        "nombre_resumido": "AVIACION 2819"
-    },
-    {
         "id": 242,
         "nombre": "JUNIN / YAULI / LA OROYA / LA OROYA",
         "nombre_resumido": "LA OROYA"
-    },
-    {
-        "id": 246,
-        "nombre": "LIMA / LIMA / SAN JUAN DE MIRAFLORES / MARIA AUXILIADORA",
-        "nombre_resumido": "MARIA AUXILIADORA"
-    },
-    {
-        "id": 250,
-        "nombre": "LIMA / LIMA / LOS OLIVOS / AV HUANDOY CON MARAÑON",
-        "nombre_resumido": "AV HUANDOY CON MARAÑON"
     },
     {
         "id": 257,
@@ -599,19 +442,9 @@ export let Agencias = [
         "nombre_resumido": "MAZUKO"
     },
     {
-        "id": 300,
-        "nombre": "LIMA / LIMA / CARABAYLLO / AV  TUPAC AMARU KM. 19",
-        "nombre_resumido": "AV  TUPAC AMARU KM. 19"
-    },
-    {
         "id": 301,
         "nombre": "LA LIBERTAD / TRUJILLO / EL PORVENIR / ALTO TRUJILLO",
         "nombre_resumido": "ALTO TRUJILLO"
-    },
-    {
-        "id": 307,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV. CARLOS IZAGUIRRE CUADRA 23",
-        "nombre_resumido": "AV. CARLOS IZAGUIRRE CUADRA 23"
     },
     {
         "id": 308,
@@ -659,11 +492,6 @@ export let Agencias = [
         "nombre_resumido": "JR LEONCIO PRADO"
     },
     {
-        "id": 327,
-        "nombre": "LIMA / LIMA / CHORRILLOS / LAS DELICIAS DE VILLA",
-        "nombre_resumido": "LAS DELICIAS DE VILLA"
-    },
-    {
         "id": 350,
         "nombre": "ANCASH / CARHUAZ / CARHUAZ / CARHUAZ",
         "nombre_resumido": "CARHUAZ"
@@ -699,11 +527,6 @@ export let Agencias = [
         "nombre_resumido": "ILAVE"
     },
     {
-        "id": 369,
-        "nombre": "LIMA / LIMA / SANTA ROSA / SANTA ROSA",
-        "nombre_resumido": "SANTA ROSA"
-    },
-    {
         "id": 372,
         "nombre": "CAJAMARCA / CAJABAMBA / CAJABAMBA / CAJABAMBA",
         "nombre_resumido": "CAJABAMBA"
@@ -719,54 +542,9 @@ export let Agencias = [
         "nombre_resumido": "TUMBES PUYANGO"
     },
     {
-        "id": 377,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / SANTA CLARA",
-        "nombre_resumido": "SANTA CLARA"
-    },
-    {
-        "id": 378,
-        "nombre": "LIMA / LIMA / VILLA EL SALVADOR / ÓVALO MARIÁTEGUI",
-        "nombre_resumido": "ÓVALO MARIÁTEGUI"
-    },
-    {
-        "id": 379,
-        "nombre": "LIMA / LIMA / VILLA EL SALVADOR / 01 DE MAYO",
-        "nombre_resumido": "01 DE MAYO"
-    },
-    {
-        "id": 380,
-        "nombre": "LIMA / LIMA / SAN JUAN DE MIRAFLORES / AV. CANEVARO",
-        "nombre_resumido": "AV. CANEVARO"
-    },
-    {
-        "id": 381,
-        "nombre": "LIMA / LIMA / VILLA MARIA DEL TRIUNFO / AV. VILLA MARIA",
-        "nombre_resumido": "AV. VILLA MARIA"
-    },
-    {
-        "id": 383,
-        "nombre": "LIMA / LIMA / SANTIAGO DE SURCO / SURCO MATEO PUMACAHUA",
-        "nombre_resumido": "SURCO MATEO PUMACAHUA"
-    },
-    {
-        "id": 384,
-        "nombre": "LIMA / LIMA / CARABAYLLO / AV. TUPAC AMARU KM. 23.5",
-        "nombre_resumido": "AV. TUPAC AMARU KM. 23.5"
-    },
-    {
-        "id": 389,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / GERMÁN AGUIRRE",
-        "nombre_resumido": "GERMÁN AGUIRRE"
-    },
-    {
         "id": 393,
         "nombre": "AREQUIPA / AREQUIPA / UCHUMAYO / UCHUMAYO",
         "nombre_resumido": "UCHUMAYO"
-    },
-    {
-        "id": 394,
-        "nombre": "LIMA / HUAURA / HUAURA / HUAURA",
-        "nombre_resumido": "HUAURA"
     },
     {
         "id": 395,
@@ -819,19 +597,9 @@ export let Agencias = [
         "nombre_resumido": "AV FERNANDO BELAUNDE"
     },
     {
-        "id": 432,
-        "nombre": "LIMA / LIMA / SURQUILLO / AV. PRINCIPAL",
-        "nombre_resumido": "AV. PRINCIPAL"
-    },
-    {
         "id": 438,
         "nombre": "AYACUCHO / HUAMANGA / JESUS NAZARENO / AYACUCHO JESÚS NAZARENO",
         "nombre_resumido": "AYACUCHO JESÚS NAZARENO"
-    },
-    {
-        "id": 441,
-        "nombre": "LIMA / HUAURA / HUACHO / HUACHO AV  INDACOCHEA",
-        "nombre_resumido": "HUACHO AV  INDACOCHEA"
     },
     {
         "id": 442,
@@ -854,29 +622,9 @@ export let Agencias = [
         "nombre_resumido": "AV  QUILCA"
     },
     {
-        "id": 449,
-        "nombre": "LIMA / LIMA / CERCADO LIMA / LIMA AV TINGO MARÍA",
-        "nombre_resumido": "LIMA AV TINGO MARÍA"
-    },
-    {
-        "id": 450,
-        "nombre": "LIMA / LIMA / CHORRILLOS / MEGAPLAZA CHORRILLOS",
-        "nombre_resumido": "MEGAPLAZA CHORRILLOS"
-    },
-    {
-        "id": 451,
-        "nombre": "LIMA / LIMA / RIMAC / RIMAC GUARDIA REPUBLICANA CDRA. 9",
-        "nombre_resumido": "RIMAC GUARDIA REPUBLICANA CDRA. 9"
-    },
-    {
         "id": 452,
         "nombre": "ICA / CHINCHA / PUEBLO NUEVO / CHINCHA PUEBLO NUEVO",
         "nombre_resumido": "CHINCHA PUEBLO NUEVO"
-    },
-    {
-        "id": 453,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / CAMPOY",
-        "nombre_resumido": "CAMPOY"
     },
     {
         "id": 455,
@@ -887,11 +635,6 @@ export let Agencias = [
         "id": 456,
         "nombre": "PUNO / MELGAR / AYAVIRI / AYAVIRI",
         "nombre_resumido": "AYAVIRI"
-    },
-    {
-        "id": 457,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV. DOMINICOS CDRA 14",
-        "nombre_resumido": "AV. DOMINICOS CDRA 14"
     },
     {
         "id": 460,
@@ -924,11 +667,6 @@ export let Agencias = [
         "nombre_resumido": "LA VILLA  CRUCE PISCO"
     },
     {
-        "id": 475,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / AV EL SOL",
-        "nombre_resumido": "AV EL SOL"
-    },
-    {
         "id": 477,
         "nombre": "LAMBAYEQUE / CHICLAYO / PIMENTEL / PIMENTEL",
         "nombre_resumido": "PIMENTEL"
@@ -957,11 +695,6 @@ export let Agencias = [
         "id": 498,
         "nombre": "CALLAO / CALLAO / LA PERLA / OVALO LA PERLA",
         "nombre_resumido": "OVALO LA PERLA"
-    },
-    {
-        "id": 500,
-        "nombre": "LIMA / LIMA / JESUS MARIA / REAL PLAZA SALAVERRY",
-        "nombre_resumido": "REAL PLAZA SALAVERRY"
     },
     {
         "id": 501,
@@ -1039,11 +772,6 @@ export let Agencias = [
         "nombre_resumido": "VIA EXPRESA SUR"
     },
     {
-        "id": 519,
-        "nombre": "LIMA / HUAURA / SAYAN / SAYAN",
-        "nombre_resumido": "SAYAN"
-    },
-    {
         "id": 520,
         "nombre": "CUSCO / QUISPICANCHI / URCOS / URCOS",
         "nombre_resumido": "URCOS"
@@ -1069,11 +797,6 @@ export let Agencias = [
         "nombre_resumido": "AV. MODESTO BORDA"
     },
     {
-        "id": 538,
-        "nombre": "LIMA / LIMA / CARABAYLLO / EL PROGRESO KM 22",
-        "nombre_resumido": "EL PROGRESO KM 22"
-    },
-    {
         "id": 541,
         "nombre": "CUSCO / CUSCO / CUSCO / TICA TICA",
         "nombre_resumido": "TICA TICA"
@@ -1092,11 +815,6 @@ export let Agencias = [
         "id": 544,
         "nombre": "LA LIBERTAD / PACASMAYO / SAN PEDRO DE LLOC / SAN PEDRO DE LLOC",
         "nombre_resumido": "SAN PEDRO DE LLOC"
-    },
-    {
-        "id": 545,
-        "nombre": "LIMA / LIMA / LA MOLINA / AV  FLORA TRISTAN",
-        "nombre_resumido": "AV  FLORA TRISTAN"
     },
     {
         "id": 547,
@@ -1127,11 +845,6 @@ export let Agencias = [
         "id": 561,
         "nombre": "LA LIBERTAD / TRUJILLO / HUANCHACO / OVALO HUANCHACO CO",
         "nombre_resumido": "OVALO HUANCHACO CO"
-    },
-    {
-        "id": 562,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / AV. CENTRAL",
-        "nombre_resumido": "AV. CENTRAL"
     },
     {
         "id": 565,
@@ -1179,26 +892,6 @@ export let Agencias = [
         "nombre_resumido": "ASOC. NUEVO HORIZONTE - AV. 54"
     },
     {
-        "id": 576,
-        "nombre": "LIMA / LIMA / PUENTE PIEDRA / OVALO PUENTE PIEDRA ",
-        "nombre_resumido": "OVALO PUENTE PIEDRA "
-    },
-    {
-        "id": 577,
-        "nombre": "LIMA / LIMA / LOS OLIVOS / AV HUANDOY CON AV CENTRAL",
-        "nombre_resumido": "AV HUANDOY CON AV CENTRAL"
-    },
-    {
-        "id": 578,
-        "nombre": "LIMA / LIMA / SANTIAGO DE SURCO / AV TOMAS MARSANO - LA BOLICHERA",
-        "nombre_resumido": "AV TOMAS MARSANO - LA BOLICHERA"
-    },
-    {
-        "id": 579,
-        "nombre": "LIMA / LIMA / LINCE / JR CASANOVA CON PETIT THOUARS",
-        "nombre_resumido": "JR CASANOVA CON PETIT THOUARS"
-    },
-    {
         "id": 582,
         "nombre": "AREQUIPA / CARAVELI / CHALA / CHALA ",
         "nombre_resumido": "CHALA "
@@ -1207,11 +900,6 @@ export let Agencias = [
         "id": 583,
         "nombre": "CALLAO / CALLAO / CALLAO / AV BERTELLO CALLAO",
         "nombre_resumido": "AV BERTELLO CALLAO"
-    },
-    {
-        "id": 584,
-        "nombre": "LIMA / CAÑETE / NUEVO IMPERIAL / NUEVO IMPERIAL CO",
-        "nombre_resumido": "NUEVO IMPERIAL CO"
     },
     {
         "id": 592,
@@ -1299,16 +987,6 @@ export let Agencias = [
         "nombre_resumido": "JR AGUSTIN GAMARRA"
     },
     {
-        "id": 627,
-        "nombre": "LIMA / LIMA / VILLA MARIA DEL TRIUNFO / NUEVA ESPERANZA VMT",
-        "nombre_resumido": "NUEVA ESPERANZA VMT"
-    },
-    {
-        "id": 629,
-        "nombre": "LIMA / LIMA / COMAS / AV TUPAC AMARU CDRA. 57",
-        "nombre_resumido": "AV TUPAC AMARU CDRA. 57"
-    },
-    {
         "id": 632,
         "nombre": "LA LIBERTAD / ASCOPE / CASA GRANDE / CASA GRANDE ",
         "nombre_resumido": "CASA GRANDE "
@@ -1379,11 +1057,6 @@ export let Agencias = [
         "nombre_resumido": "VISTA ALEGRE CO"
     },
     {
-        "id": 670,
-        "nombre": "LIMA / CAÑETE / CHILCA / ANT PANAM SUR CDRA 11",
-        "nombre_resumido": "ANT PANAM SUR CDRA 11"
-    },
-    {
         "id": 672,
         "nombre": "AREQUIPA / CAYLLOMA / MAJES / AV COLONIZADORES  CO",
         "nombre_resumido": "AV COLONIZADORES  CO"
@@ -1399,39 +1072,14 @@ export let Agencias = [
         "nombre_resumido": "CHALLHUAHUACHO"
     },
     {
-        "id": 677,
-        "nombre": "AREQUIPA / AREQUIPA / AREQUIPA / MALL LAMBRAMANI",
-        "nombre_resumido": "MALL LAMBRAMANI"
-    },
-    {
-        "id": 4,
-        "nombre": "LIMA / LIMA / LA VICTORIA / AV MEXICO CO",
-        "nombre_resumido": "AV MEXICO CO"
-    },
-    {
         "id": 26,
         "nombre": "JUNIN / CONCEPCION / CONCEPCION / CONCEPCION",
         "nombre_resumido": "CONCEPCION"
     },
     {
-        "id": 92,
-        "nombre": "LIMA / LIMA / LA MOLINA / AV  LA FONTANA",
-        "nombre_resumido": "AV  LA FONTANA"
-    },
-    {
-        "id": 107,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV BERTELLO SMP",
-        "nombre_resumido": "AV BERTELLO SMP"
-    },
-    {
         "id": 187,
         "nombre": "LAMBAYEQUE / CHICLAYO / JOSE LEONARDO ORTIZ  / CALLE TAHUANTINSUYO",
         "nombre_resumido": "CALLE TAHUANTINSUYO"
-    },
-    {
-        "id": 256,
-        "nombre": "LIMA / LIMA / INDEPENDENCIA / PLAZA NORTE ENTREGAS",
-        "nombre_resumido": "PLAZA NORTE ENTREGAS"
     },
     {
         "id": 302,
@@ -1442,11 +1090,6 @@ export let Agencias = [
         "id": 355,
         "nombre": "HUANUCO / LEONCIO PRADO / RUPA RUPA / TINGO MARÍA - LEONCIO PRADO",
         "nombre_resumido": "TINGO MARÍA - LEONCIO PRADO"
-    },
-    {
-        "id": 390,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / AV  ESPERANZA",
-        "nombre_resumido": "AV  ESPERANZA"
     },
     {
         "id": 416,
@@ -1464,79 +1107,14 @@ export let Agencias = [
         "nombre_resumido": "LA CRUZ  TUMBES"
     },
     {
-        "id": 229,
-        "nombre": "LIMA / LIMA / COMAS / AÑO NUEVO",
-        "nombre_resumido": "AÑO NUEVO"
-    },
-    {
-        "id": 636,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / HUAYCAN AV HORACIO ZEVALLOS  ",
-        "nombre_resumido": "HUAYCAN AV HORACIO ZEVALLOS  "
-    },
-    {
-        "id": 459,
-        "nombre": "LIMA / LIMA / SAN BORJA / AV. ANGAMOS",
-        "nombre_resumido": "AV. ANGAMOS"
-    },
-    {
-        "id": 227,
-        "nombre": "LIMA / LIMA / LOS OLIVOS / AV. ANGELICA GAMARRA",
-        "nombre_resumido": "AV. ANGELICA GAMARRA"
-    },
-    {
         "id": 502,
         "nombre": "LAMBAYEQUE / CHICLAYO / JOSE LEONARDO ORTIZ  / AV  BALTA CDRA. 36",
         "nombre_resumido": "AV  BALTA CDRA. 36"
     },
     {
-        "id": 587,
-        "nombre": "LIMA / LIMA / PUEBLO LIBRE / AV  BOLIVAR ",
-        "nombre_resumido": "AV  BOLIVAR "
-    },
-    {
-        "id": 635,
-        "nombre": "LIMA / LIMA / PUENTE PIEDRA / AV BUENOS AIRES",
-        "nombre_resumido": "AV BUENOS AIRES"
-    },
-    {
-        "id": 507,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV. CANTA CALLAO CON IZAGUIRRE",
-        "nombre_resumido": "AV. CANTA CALLAO CON IZAGUIRRE"
-    },
-    {
-        "id": 106,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV. CANTA CALLAO  CON ALISOS",
-        "nombre_resumido": "AV. CANTA CALLAO  CON ALISOS"
-    },
-    {
-        "id": 423,
-        "nombre": "LIMA / LIMA / LOS OLIVOS / AV. CARLOS IZAGUIRRE CDRA. 14",
-        "nombre_resumido": "AV. CARLOS IZAGUIRRE CDRA. 14"
-    },
-    {
         "id": 590,
         "nombre": "JUNIN / HUANCAYO / EL TAMBO / AV CIRCUNVALACIÓN CRUCE CON MARIATEGUI",
         "nombre_resumido": "AV CIRCUNVALACIÓN CRUCE CON MARIATEGUI"
-    },
-    {
-        "id": 626,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / AV CIRCUNVALACION SJL",
-        "nombre_resumido": "AV CIRCUNVALACION SJL"
-    },
-    {
-        "id": 537,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / AV. DEL MERCADO",
-        "nombre_resumido": "AV. DEL MERCADO"
-    },
-    {
-        "id": 385,
-        "nombre": "LIMA / LIMA / LOS OLIVOS / AV. DOS DE OCTUBRE",
-        "nombre_resumido": "AV. DOS DE OCTUBRE"
-    },
-    {
-        "id": 387,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV. GERARDO UNGER CDRA 64",
-        "nombre_resumido": "AV. GERARDO UNGER CDRA 64"
     },
     {
         "id": 208,
@@ -1554,11 +1132,6 @@ export let Agencias = [
         "nombre_resumido": "AV HNOS UCEDA - AMERICA NORTE"
     },
     {
-        "id": 454,
-        "nombre": "LIMA / LIMA / SANTA ANITA / AV. HUAROCHIRÍ",
-        "nombre_resumido": "AV. HUAROCHIRÍ"
-    },
-    {
         "id": 594,
         "nombre": "LORETO / MAYNAS / IQUITOS SAN JUAN BAUTISTA / AV JOSE A. QUIÑONES",
         "nombre_resumido": "AV JOSE A. QUIÑONES"
@@ -1567,31 +1140,6 @@ export let Agencias = [
         "id": 298,
         "nombre": "ANCASH / SANTA / CHIMBOTE / AV  JOSE GALVEZ",
         "nombre_resumido": "AV  JOSE GALVEZ"
-    },
-    {
-        "id": 431,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV JOSE GRANDA CDRA 38",
-        "nombre_resumido": "AV JOSE GRANDA CDRA 38"
-    },
-    {
-        "id": 462,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV JOSE GRANDA CDRA. 25",
-        "nombre_resumido": "AV JOSE GRANDA CDRA. 25"
-    },
-    {
-        "id": 591,
-        "nombre": "LIMA / LIMA / LINCE / AV JOSE LEAL CDRA 6 ",
-        "nombre_resumido": "AV JOSE LEAL CDRA 6 "
-    },
-    {
-        "id": 465,
-        "nombre": "LIMA / LIMA / CARABAYLLO / AV JOSE SACO ROJAS",
-        "nombre_resumido": "AV JOSE SACO ROJAS"
-    },
-    {
-        "id": 531,
-        "nombre": "LIMA / LIMA / LA MOLINA / AV. LA MOLINA CDRA. 35",
-        "nombre_resumido": "AV. LA MOLINA CDRA. 35"
     },
     {
         "id": 309,
@@ -1609,44 +1157,9 @@ export let Agencias = [
         "nombre_resumido": "AV. LAS MAGNOLIAS"
     },
     {
-        "id": 6,
-        "nombre": "LIMA / LIMA / LOS OLIVOS / AV. LAS PALMERAS",
-        "nombre_resumido": "AV. LAS PALMERAS"
-    },
-    {
-        "id": 285,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV. LIMA CDRA 38",
-        "nombre_resumido": "AV. LIMA CDRA 38"
-    },
-    {
         "id": 474,
         "nombre": "ANCASH / SANTA / CHIMBOTE / AV. LOS PESCADORES CO",
         "nombre_resumido": "AV. LOS PESCADORES CO"
-    },
-    {
-        "id": 466,
-        "nombre": "LIMA / LIMA / LOS OLIVOS / AV. LOS PLATINOS",
-        "nombre_resumido": "AV. LOS PLATINOS"
-    },
-    {
-        "id": 619,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / AV MALECON  CHECA CDRA. 1 ",
-        "nombre_resumido": "AV MALECON  CHECA CDRA. 1 "
-    },
-    {
-        "id": 586,
-        "nombre": "LIMA / LIMA / PACHACAMAC / AV MANUEL VALLE",
-        "nombre_resumido": "AV MANUEL VALLE"
-    },
-    {
-        "id": 109,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / AV  MARCO PUENTE",
-        "nombre_resumido": "AV  MARCO PUENTE"
-    },
-    {
-        "id": 382,
-        "nombre": "LIMA / LIMA / SAN JUAN DE MIRAFLORES / AV MIGUEL GRAU  PAMPLONA ALTA",
-        "nombre_resumido": "AV MIGUEL GRAU  PAMPLONA ALTA"
     },
     {
         "id": 568,
@@ -1654,44 +1167,9 @@ export let Agencias = [
         "nombre_resumido": "AV. PACÍFICO BELEN"
     },
     {
-        "id": 254,
-        "nombre": "LIMA / LIMA / VILLA EL SALVADOR / AV. PASTOR SEVILLA",
-        "nombre_resumido": "AV. PASTOR SEVILLA"
-    },
-    {
-        "id": 224,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV. PERU 15",
-        "nombre_resumido": "AV. PERU 15"
-    },
-    {
-        "id": 589,
-        "nombre": "LIMA / LIMA / SAN JUAN DE MIRAFLORES / AV  SAN JUAN PAMPLONA ALTA",
-        "nombre_resumido": "AV  SAN JUAN PAMPLONA ALTA"
-    },
-    {
-        "id": 499,
-        "nombre": "LIMA / LIMA / PUENTE PIEDRA / AV. SAN LORENZO",
-        "nombre_resumido": "AV. SAN LORENZO"
-    },
-    {
-        "id": 495,
-        "nombre": "LIMA / LIMA / SANTA ANITA / AV  SANTA ROSA - STA ANITA",
-        "nombre_resumido": "AV  SANTA ROSA - STA ANITA"
-    },
-    {
-        "id": 563,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / AV. SANTA ROSA CRUCE AV. EL SOL",
-        "nombre_resumido": "AV. SANTA ROSA CRUCE AV. EL SOL"
-    },
-    {
         "id": 211,
         "nombre": "LA LIBERTAD / TRUJILLO / LA ESPERANZA / AV TAHUANTINSUYO",
         "nombre_resumido": "AV TAHUANTINSUYO"
-    },
-    {
-        "id": 539,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / AV. UNIVERSITARIA CDRA. 16",
-        "nombre_resumido": "AV. UNIVERSITARIA CDRA. 16"
     },
     {
         "id": 370,
@@ -1714,19 +1192,9 @@ export let Agencias = [
         "nombre_resumido": "BARRIO SAN JOSE"
     },
     {
-        "id": 439,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / BAYOVAR",
-        "nombre_resumido": "BAYOVAR"
-    },
-    {
         "id": 362,
         "nombre": "PIURA / SULLANA / BELLAVISTA / BELLAVISTA SULLANA",
         "nombre_resumido": "BELLAVISTA SULLANA"
-    },
-    {
-        "id": 588,
-        "nombre": "LIMA / LIMA / INDEPENDENCIA / CALLE A  CON AV INDUSTRIAL",
-        "nombre_resumido": "CALLE A  CON AV INDUSTRIAL"
     },
     {
         "id": 10,
@@ -1742,21 +1210,6 @@ export let Agencias = [
         "id": 524,
         "nombre": "LA LIBERTAD / TRUJILLO / TRUJILLO / CALLE SANTA CRUZ - AMERICA SUR",
         "nombre_resumido": "CALLE SANTA CRUZ - AMERICA SUR"
-    },
-    {
-        "id": 419,
-        "nombre": "LIMA / CAÑETE / IMPERIAL / CAÑETE IMPERIAL",
-        "nombre_resumido": "CAÑETE IMPERIAL"
-    },
-    {
-        "id": 410,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / CANTO GRANDE",
-        "nombre_resumido": "CANTO GRANDE"
-    },
-    {
-        "id": 108,
-        "nombre": "LIMA / LIMA / CARABAYLLO / CARABAYLLO ESTABLO",
-        "nombre_resumido": "CARABAYLLO ESTABLO"
     },
     {
         "id": 219,
@@ -1784,16 +1237,6 @@ export let Agencias = [
         "nombre_resumido": "CHEPEN"
     },
     {
-        "id": 70,
-        "nombre": "LIMA / LIMA / CHORRILLOS / CHORRILLOS CO",
-        "nombre_resumido": "CHORRILLOS CO"
-    },
-    {
-        "id": 170,
-        "nombre": "LIMA / LIMA / CHORRILLOS / CHORRILLOS LOS FAISANES",
-        "nombre_resumido": "CHORRILLOS LOS FAISANES"
-    },
-    {
         "id": 98,
         "nombre": "PIURA / MORROPON / CHULUCANAS / CHULUCANAS",
         "nombre_resumido": "CHULUCANAS"
@@ -1804,29 +1247,14 @@ export let Agencias = [
         "nombre_resumido": "CHUPACA"
     },
     {
-        "id": 522,
-        "nombre": "LIMA / LIMA / CIENEGUILLA / CIENEGUILLA KM. 14.5",
-        "nombre_resumido": "CIENEGUILLA KM. 14.5"
-    },
-    {
         "id": 656,
         "nombre": "AREQUIPA / ISLAY / COCACHACRA / COCACHACRA ",
         "nombre_resumido": "COCACHACRA "
     },
     {
-        "id": 67,
-        "nombre": "LIMA / LIMA / COMAS / AV UNIV.  RETABLO",
-        "nombre_resumido": "AV UNIV.  RETABLO"
-    },
-    {
         "id": 463,
         "nombre": "TUMBES / TUMBES / CORRALES / CORRALES",
         "nombre_resumido": "CORRALES"
-    },
-    {
-        "id": 116,
-        "nombre": "LIMA / LIMA / EL AGUSTINO / PUENTE NUEVO",
-        "nombre_resumido": "PUENTE NUEVO"
     },
     {
         "id": 614,
@@ -1839,11 +1267,6 @@ export let Agencias = [
         "nombre_resumido": "PIO  PATA"
     },
     {
-        "id": 68,
-        "nombre": "LIMA / LIMA / SAN MARTIN DE PORRES / FIORI",
-        "nombre_resumido": "FIORI"
-    },
-    {
         "id": 564,
         "nombre": "ANCASH / SANTA / NUEVO CHIMBOTE / GARATEA",
         "nombre_resumido": "GARATEA"
@@ -1852,11 +1275,6 @@ export let Agencias = [
         "id": 425,
         "nombre": "LA LIBERTAD / PACASMAYO / GUADALUPE / GUADALUPE LA LIBERTAD",
         "nombre_resumido": "GUADALUPE LA LIBERTAD"
-    },
-    {
-        "id": 151,
-        "nombre": "LIMA / LIMA / SANTIAGO DE SURCO / HIGUERETA",
-        "nombre_resumido": "HIGUERETA"
     },
     {
         "id": 225,
@@ -1887,16 +1305,6 @@ export let Agencias = [
         "id": 183,
         "nombre": "ANCASH / HUARMEY / HUARMEY / HUARMEY",
         "nombre_resumido": "HUARMEY"
-    },
-    {
-        "id": 620,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / HUAYCAN  EL DESCANSO",
-        "nombre_resumido": "HUAYCAN  EL DESCANSO"
-    },
-    {
-        "id": 216,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / HUAYCAN AV JOSE C MARIATEGUI",
-        "nombre_resumido": "HUAYCAN AV JOSE C MARIATEGUI"
     },
     {
         "id": 405,
@@ -1934,39 +1342,9 @@ export let Agencias = [
         "nombre_resumido": "JAYANCA"
     },
     {
-        "id": 374,
-        "nombre": "LIMA / LIMA / JESUS MARIA / JESUS MARIA",
-        "nombre_resumido": "JESUS MARIA"
-    },
-    {
-        "id": 473,
-        "nombre": "LIMA / HUAROCHIRI / SAN ANTONIO / JICAMARCA",
-        "nombre_resumido": "JICAMARCA"
-    },
-    {
-        "id": 655,
-        "nombre": "LIMA / LIMA / EL AGUSTINO / JIRON ANCASH",
-        "nombre_resumido": "JIRON ANCASH"
-    },
-    {
-        "id": 476,
-        "nombre": "LIMA / LIMA / BRENA / JR. HUARAZ -  BREÑA",
-        "nombre_resumido": "JR. HUARAZ -  BREÑA"
-    },
-    {
-        "id": 172,
-        "nombre": "LIMA / LIMA / INDEPENDENCIA / LA CINCUENTA",
-        "nombre_resumido": "LA CINCUENTA"
-    },
-    {
         "id": 166,
         "nombre": "JUNIN / CHANCHAMAYO / LA MERCED / LA MERCED",
         "nombre_resumido": "LA MERCED"
-    },
-    {
-        "id": 426,
-        "nombre": "LIMA / LIMA / LA MOLINA / LOS FRESNOS",
-        "nombre_resumido": "LOS FRESNOS"
     },
     {
         "id": 396,
@@ -1994,29 +1372,9 @@ export let Agencias = [
         "nombre_resumido": "LAMBAYEQUE PANAMERICANA"
     },
     {
-        "id": 661,
-        "nombre": "LIMA / LIMA / MIRAFLORES / LARCOMAR",
-        "nombre_resumido": "LARCOMAR"
-    },
-    {
         "id": 391,
         "nombre": "PIURA / PIURA / LAS LOMAS / LAS LOMAS",
         "nombre_resumido": "LAS LOMAS"
-    },
-    {
-        "id": 411,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / LOS PINOS",
-        "nombre_resumido": "LOS PINOS"
-    },
-    {
-        "id": 122,
-        "nombre": "LIMA / LIMA / LURIN / NUEVO LURIN",
-        "nombre_resumido": "NUEVO LURIN"
-    },
-    {
-        "id": 392,
-        "nombre": "LIMA / LIMA / CERCADO LIMA / MALVINAS - JR. GARCIA VILLóN",
-        "nombre_resumido": "MALVINAS - JR. GARCIA VILLóN"
     },
     {
         "id": 609,
@@ -2029,11 +1387,6 @@ export let Agencias = [
         "nombre_resumido": "MANANTAY AV TUPAC AMARU"
     },
     {
-        "id": 580,
-        "nombre": "LIMA / LIMA / PACHACAMAC / MANCHAY TRES MARIAS",
-        "nombre_resumido": "MANCHAY TRES MARIAS"
-    },
-    {
         "id": 184,
         "nombre": "LAMBAYEQUE / CHICLAYO / CHICLAYO / MARISCAL NIETO",
         "nombre_resumido": "MARISCAL NIETO"
@@ -2042,11 +1395,6 @@ export let Agencias = [
         "id": 648,
         "nombre": "AREQUIPA / ISLAY / ISLAY / MATARANI ",
         "nombre_resumido": "MATARANI "
-    },
-    {
-        "id": 532,
-        "nombre": "LIMA / LIMA / INDEPENDENCIA / MEGAPLAZA INDEPENDENCIA",
-        "nombre_resumido": "MEGAPLAZA INDEPENDENCIA"
     },
     {
         "id": 158,
@@ -2134,11 +1482,6 @@ export let Agencias = [
         "nombre_resumido": "PAMPA GRANDE TUMBES"
     },
     {
-        "id": 662,
-        "nombre": "LIMA / LIMA / LA MOLINA / PARQUE LA MOLINA",
-        "nombre_resumido": "PARQUE LA MOLINA"
-    },
-    {
         "id": 660,
         "nombre": "LAMBAYEQUE / CHICLAYO / PATAPO / PATAPO ",
         "nombre_resumido": "PATAPO "
@@ -2149,39 +1492,9 @@ export let Agencias = [
         "nombre_resumido": "PILCOMAYO "
     },
     {
-        "id": 240,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / SJL-AV.PROCERES",
-        "nombre_resumido": "SJL-AV.PROCERES"
-    },
-    {
-        "id": 105,
-        "nombre": "LIMA / LIMA / PUEBLO LIBRE / AV. LA MARINA",
-        "nombre_resumido": "AV. LA MARINA"
-    },
-    {
-        "id": 73,
-        "nombre": "LIMA / LIMA / PUENTE PIEDRA / PUENTE ARICA",
-        "nombre_resumido": "PUENTE ARICA"
-    },
-    {
-        "id": 530,
-        "nombre": "LIMA / LIMA / LURIN / PUENTE LURIN",
-        "nombre_resumido": "PUENTE LURIN"
-    },
-    {
         "id": 605,
         "nombre": "LORETO / MAYNAS / PUNCHANA / PUNCHANA ",
         "nombre_resumido": "PUNCHANA "
-    },
-    {
-        "id": 628,
-        "nombre": "LIMA / LIMA / PUNTA HERMOSA / PUNTA HERMOSA ",
-        "nombre_resumido": "PUNTA HERMOSA "
-    },
-    {
-        "id": 111,
-        "nombre": "LIMA / LIMA / SURQUILLO / REP. DE PANAMA",
-        "nombre_resumido": "REP. DE PANAMA"
     },
     {
         "id": 645,
@@ -2214,16 +1527,6 @@ export let Agencias = [
         "nombre_resumido": "SAN JOSE DE SISA "
     },
     {
-        "id": 66,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / AV. 13 DE ENERO",
-        "nombre_resumido": "AV. 13 DE ENERO"
-    },
-    {
-        "id": 44,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / AV SANTA ROSA URB LOS ALAMOS",
-        "nombre_resumido": "AV SANTA ROSA URB LOS ALAMOS"
-    },
-    {
         "id": 371,
         "nombre": "CAJAMARCA / SAN MARCOS / PEDRO GALVEZ / SAN MARCOS",
         "nombre_resumido": "SAN MARCOS"
@@ -2237,16 +1540,6 @@ export let Agencias = [
         "id": 321,
         "nombre": "ANCASH / SANTA / SANTA / SANTA",
         "nombre_resumido": "SANTA"
-    },
-    {
-        "id": 469,
-        "nombre": "LIMA / LIMA / LURIGANCHO / SANTA MARÍA DE HUACHIPA",
-        "nombre_resumido": "SANTA MARÍA DE HUACHIPA"
-    },
-    {
-        "id": 536,
-        "nombre": "LIMA / LIMA / CARABAYLLO / SANTO DOMINGO",
-        "nombre_resumido": "SANTO DOMINGO"
     },
     {
         "id": 668,
@@ -2264,11 +1557,6 @@ export let Agencias = [
         "nombre_resumido": "SEGUNDA JERUSALEN"
     },
     {
-        "id": 97,
-        "nombre": "LIMA / LIMA / SAN JUAN DE MIRAFLORES / ATOCONGO",
-        "nombre_resumido": "ATOCONGO"
-    },
-    {
         "id": 35,
         "nombre": "PIURA / SULLANA / SULLANA / SULLANA SANTA ROSA",
         "nombre_resumido": "SULLANA SANTA ROSA"
@@ -2282,11 +1570,6 @@ export let Agencias = [
         "id": 637,
         "nombre": "ICA / CHINCHA / SUNAMPE / SUNAMPE  CO ",
         "nombre_resumido": "SUNAMPE  CO "
-    },
-    {
-        "id": 631,
-        "nombre": "LIMA / BARRANCA / SUPE / SUPE",
-        "nombre_resumido": "SUPE"
     },
     {
         "id": 245,
@@ -2309,24 +1592,9 @@ export let Agencias = [
         "nombre_resumido": "TEMBLADERA  CAJAMARCA"
     },
     {
-        "id": 228,
-        "nombre": "LIMA / LIMA / COMAS / AV. TRAPICHE",
-        "nombre_resumido": "AV. TRAPICHE"
-    },
-    {
         "id": 297,
         "nombre": "ANCASH / SANTA / NUEVO CHIMBOTE / TRES DE OCTUBRE",
         "nombre_resumido": "TRES DE OCTUBRE"
-    },
-    {
-        "id": 630,
-        "nombre": "LIMA / LIMA / ATE-VITARTE / URB SANTA ELVIRA ",
-        "nombre_resumido": "URB SANTA ELVIRA "
-    },
-    {
-        "id": 230,
-        "nombre": "LIMA / LIMA / CARABAYLLO / TUNGASUCA",
-        "nombre_resumido": "TUNGASUCA"
     },
     {
         "id": 421,
@@ -2344,35 +1612,8 @@ export let Agencias = [
         "nombre_resumido": "YARINACOCHA  AV UNIVERSITARIA"
     },
     {
-        "id": 553,
-        "nombre": "LIMA / LIMA / SAN JUAN DE LURIGANCHO / JR CHINCHAYSUYO CDRA 4",
-        "nombre_resumido": "JR CHINCHAYSUYO CDRA 4"
-    },
-    {
         "id": 397,
         "nombre": "TUMBES / ZARUMILLA / ZARUMILLA / ZARUMILLA",
         "nombre_resumido": "ZARUMILLA"
     }
 ];
-
-export async function obtenerAgencias() {
-    try {
-        const response = await fetch(`${URL_BACKEND}/terminals`, {
-            method: 'GET'
-        });
-
-        if (!response.ok) {
-            throw new Error('Error en la solicitud');
-        }
-
-        const data = await response.json();
-        // Actualizar el array en su lugar para que todos los módulos vean los nuevos datos
-        Agencias.length = 0;
-        Agencias.push(...data);
-        return Agencias;
-    } catch (error) {
-        console.warn('⚠️ No se pudo obtener agencias del backend, usando lista por defecto:', error);
-        // Retornar las agencias por defecto sin lanzar error
-        return Agencias;
-    }
-}
