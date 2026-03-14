@@ -80,9 +80,11 @@ export function cerrarModalBackdropAgencias(event) {
  * Filtra la lista de agencias por texto
  */
 function filtrarAgencias(texto, lista) {
+    const textoUpper = texto.toUpperCase();
     return lista.filter(item => {
-        const nombre = item.nombre || item;
-        return nombre.toUpperCase().includes(texto.toUpperCase());
+        const nombre = (item.nombre || '').toUpperCase();
+        const direccion = (item.direccion || '').toUpperCase();
+        return nombre.includes(textoUpper) || direccion.includes(textoUpper);
     });
 }
 
@@ -102,8 +104,9 @@ function renderizarAgencias(agencias) {
 
     agencias.forEach(agencia => {
         const li = document.createElement('li');
-        li.className = 'p-3 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100';
-        li.innerHTML = `<span class="text-sm text-gray-800 leading-tight block">${agencia.nombre}</span>`;
+        li.className = 'p-3 border-b border-gray-100 font-bold hover:bg-gray-50 cursor-pointer transition-colors active:bg-gray-100';
+        li.innerHTML = `<span class="text-sm text-gray-800 leading-tight block">${agencia.nombre}</span>
+            <span class="text-xs text-gray-400 leading-tight block mt-1">${agencia.direccion}</span>`;
 
         li.addEventListener('click', () => seleccionarAgencia(agencia));
         listaAgenciasModal.appendChild(li);
