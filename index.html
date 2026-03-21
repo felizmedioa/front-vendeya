@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Pedido - Spitech</title>
+    <script>if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark') }</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="css/modal-responsive.css" />
@@ -22,38 +23,38 @@
     </style>
 </head>
 
-<body class="bg-gray-100 flex justify-center items-start min-h-screen p-6">
+<body class="bg-gray-100 dark:bg-slate-700 flex justify-center items-start min-h-screen p-6">
 
-    <div class="w-full max-w-3xl bg-white p-8 rounded-xl shadow-lg">
-        <h2 class="text-2xl font-bold mb-2 text-gray-800">Registro de Pedido</h2>
-        <p class="text-sm text-gray-500 mb-6">Completa los datos para coordinar tu entrega.</p>
+    <div class="w-full max-w-3xl bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-slate-50">Registro de Pedido</h2>
+        <p class="text-sm text-gray-500 dark:text-slate-400 mb-6">Completa los datos para coordinar tu entrega.</p>
 
         <form id="pedidoForm" class="space-y-4">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Nombre completo *</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Nombre completo *</label>
                     <input type="text" id="nombre_completo" required class="w-full p-2 border rounded mt-1">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">DNI *</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">DNI *</label>
                     <input type="text" id="dni" required class="w-full p-2 border rounded mt-1">
                 </div>
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700">WhatsApp *</label>
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">WhatsApp *</label>
                 <input type="text" id="whatsapp" required placeholder="+51..." class="w-full p-2 border rounded mt-1">
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700">Producto *</label>
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Producto *</label>
                 <input type="text" id="producto" required class="w-full p-2 border rounded mt-1">
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Método de Pago *</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Método de Pago *</label>
                     <select id="metodo_pago" required class="w-full p-2 border rounded mt-1">
                         <option value="Yape">Yape</option>
                         <option value="Plin">Plin</option>
@@ -62,11 +63,12 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Monto Restante (S/)</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Monto Restante
+                        (S/)</label>
                     <input type="number" id="valor_restante" step="1.0" required class="w-full p-2 border rounded mt-1">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Fecha *</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Fecha *</label>
                     <input type="date" id="fecha" required class="w-full p-2 border rounded mt-1">
                 </div>
             </div>
@@ -74,7 +76,7 @@
             <hr class="my-4">
 
             <div>
-                <label class="block text-sm font-medium text-gray-700">Tipo de Envío *</label>
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Tipo de Envío *</label>
                 <select id="tipo_envio" required class="w-full p-2 border rounded mt-1 font-bold text-blue-800">
                     <option value="">Seleccione...</option>
                     <option value="Lima">Envío a Lima (Motorizado)</option>
@@ -86,8 +88,9 @@
                 <h3 class="font-bold text-blue-800">Ubicación de Entrega</h3>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Distrito *</label>
-                    <select id="distrito_lima" class="w-full p-2 border rounded mt-1 bg-white" contenteditable="true">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Distrito *</label>
+                    <select id="distrito_lima" class="w-full p-2 border rounded mt-1 bg-white dark:bg-slate-800"
+                        contenteditable="true">
                         <option value="">Selecciona tu distrito...</option>
                         <option value="Ancón">Ancón</option>
                         <option value="Ate">Ate</option>
@@ -142,13 +145,15 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Mueve el Pin 📍 a tu ubicación
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200 mb-1">Mueve el Pin 📍 a tu
+                        ubicación
                         exacta:</label>
                     <div id="mapa-selector"></div>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Dirección o Link de Ubicación *</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Dirección o Link de
+                        Ubicación *</label>
                     <input type="text" id="direccion_link"
                         placeholder="Elegir lo más sencillo para ubicarlo por Google Maps"
                         class="w-full p-2 border rounded mt-1">
@@ -164,17 +169,19 @@
                 <h3 class="font-bold text-orange-800">Datos de Agencia</h3>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Agencia de destino</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-200">Agencia de
+                        destino</label>
                     <div class="flex flex-col gap-0 mt-1">
                         <!-- Input que abre el modal al hacer clic -->
                         <input type="text" id="agencia_provincia" placeholder="Toca aquí para seleccionar agencia..."
                             readonly
-                            class="flex-1 p-3 border rounded cursor-pointer bg-white hover:bg-gray-50 transition"
-                            onclick="abrirModalAgencias()">
+                            class="flex-1 p-3 border rounded cursor-pointer bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 dark:bg-slate-900 transition"
+                            onclick="abrirModalAgencias()" required>
                         <!-- Input oculto para guardar el value formateado -->
                         <input type="hidden" id="agencia_value">
                     </div>
-                    <a href="https://agencias.shalom.pe" class="text-xs text-gray-500 mt-1 underline" target="_blank"
+                    <a href="https://agencias.shalom.pe"
+                        class="text-xs text-gray-500 dark:text-slate-400 mt-1 underline" target="_blank"
                         rel="noopener noreferrer">Buscar agencias
                         por
                         direccion Aquí</a>
@@ -193,12 +200,13 @@
     <div id="modalBackdropAgencias" class="fixed inset-0 bg-black/10 backdrop-blur-custom z-50 hidden"
         onclick="cerrarModalBackdropAgencias(event)">
         <!-- Box Select Container -->
-        <div id="boxSelectAgencias" class="bg-white shadow-2xl z-50 flex flex-col" onclick="event.stopPropagation()">
+        <div id="boxSelectAgencias" class="bg-white dark:bg-slate-800 shadow-2xl z-50 flex flex-col"
+            onclick="event.stopPropagation()">
             <!-- Header del modal con input de búsqueda -->
-            <div class="p-4 border-b bg-white sticky top-0">
+            <div class="p-4 border-b bg-white dark:bg-slate-800 sticky top-0">
                 <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-3 md:hidden"></div>
                 <input type="text" id="inputBusquedaModal" placeholder="Buscar agencia..."
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                    class="w-full p-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
             </div>
 
             <!-- Lista scrolleable de agencias -->
@@ -213,6 +221,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script type="module" src="js/app.js"></script>
 
+    <script src="../js/theme.js"></script>
 </body>
 
 </html>
