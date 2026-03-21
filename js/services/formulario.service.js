@@ -20,16 +20,19 @@ export function inicializarFormulario() {
     tipoEnvio.addEventListener('change', () => {
         const tipo = tipoEnvio.value;
 
-        // Ocultar ambas secciones
+        // Ocultar ambas secciones y reiniciar obligatoriedad
         seccionLima.classList.add('hidden');
         seccionProvincia.classList.add('hidden');
+        
         inputDireccion.required = false;
+        distritoSelect.required = false;
         inputAgencia.required = false;
 
-        // Mostrar la sección correspondiente
+        // Mostrar la sección correspondiente y volver campos obligatorios
         if (tipo === 'Lima') {
             seccionLima.classList.remove('hidden');
             inputDireccion.required = true;
+            distritoSelect.required = true;
             invalidarTamano();
 
         } else if (tipo === 'Provincia') {

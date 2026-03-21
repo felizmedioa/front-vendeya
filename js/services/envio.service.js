@@ -79,9 +79,20 @@ export function inicializarEnvio() {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        deshabilitarBoton(document.getElementById('btnSubmit'));
 
         const data = recolectarDatosFormulario();
+
+        // Validación estricta final (por si el navegador ignora validación HTML de inputs readonly)
+        if (data.tipo_envio === 'Provincia' && !data.agencia) {
+            alert('❌ Por favor, selecciona la Agencia de destino antes de registrar el pedido.');
+            return;
+        }
+        if (data.tipo_envio === 'Lima' && !data.distrito) {
+            alert('❌ Por favor, selecciona el Distrito de entrega antes de registrar el pedido.');
+            return;
+        }
+
+        deshabilitarBoton(document.getElementById('btnSubmit'));
 
         // Envíos paralelos e independientes
         const promesas = [enviarAGoogleSheets(data)];
