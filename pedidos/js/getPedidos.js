@@ -1,40 +1,41 @@
-import { URL_BACKEND } from '../../js/config.env.js';
 import { getToken } from '../../dashboard/js/auth.js';
+import { fetchPedidos } from '../../js/services/pedidos.service.js';
+import { setupFilters } from './filterPedidos.js';
+
+let allPedidos = [];
 
 document.addEventListener('DOMContentLoaded', async () => {
     const tbody = document.getElementById('pedidos-tbody');
     const token = getToken();
 
+    // Activar botón de Refresco Manual
+    const btnRefresh = document.getElementById('btn-refresh');
+    if (btnRefresh) {
+        btnRefresh.addEventListener('click', () => {
+            sessionStorage.removeItem('pedidos_cache');
+            window.location.reload();
+        });
+    }
+
     if (!token) {
-        tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-4 text-center text-gray-500">Inicia sesión para ver tus pedidos.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="8" class="px-6 py-4 text-center text-gray-500">Inicia sesión para ver tus pedidos.</td></tr>`;
         return;
     }
 
     try {
-        const response = await fetch(`${URL_BACKEND}/pedidos-forms/list`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ token: token })
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error en el servidor: ${response.status}`);
-        }
-
-        const pedidos = await response.json();
-        renderPedidos(pedidos, tbody);
+        allPedidos = await fetchPedidos(token);
+        renderPedidos(allPedidos, tbody);
+        setupFilters(allPedidos, renderPedidos, tbody);
 
     } catch (error) {
         console.error("Error al obtener pedidos:", error);
-        tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-4 text-center text-red-500">Hubo un error al cargar los pedidos.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="8" class="px-6 py-4 text-center text-red-500">Hubo un error al cargar los pedidos.</td></tr>`;
     }
 });
 
 function renderPedidos(pedidos, tbody) {
     if (!pedidos || pedidos.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-4 text-center text-gray-500">No tienes pedidos registrados.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="8" class="px-6 py-4 text-center text-gray-500">No tienes pedidos registrados que coincidan con la búsqueda.</td></tr>`;
         return;
     }
 
@@ -48,6 +49,7 @@ function renderPedidos(pedidos, tbody) {
 
         const idPedido = correlativo || 'N/A';
         const nombreSuelto = pedido.nombre_completo || 'Desconocido';
+        const dni = pedido.dni || 'N/A';
         const estado = pedido.estado || 'Pedido';
         const fecha = fecha_pedido || 'N/A';
         const agencia = pedido.agencia || 'Desconocido';
@@ -94,6 +96,7 @@ function renderPedidos(pedidos, tbody) {
             <td class="px-6 py-4 text-gray-600 whitespace-nowrap">
                 ${getAgencyBadge(agencia)}
             </td>
+            <td class="px-6 py-4 text-gray-600 whitespace-nowrap">${dni}</td>
             <td class="px-6 py-4 whitespace-nowrap">
                 ${waHtml}
             </td>

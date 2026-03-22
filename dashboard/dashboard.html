@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Soluciones Colibrí</title>
-    <script>if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}</script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fuentes de Google -->
@@ -37,7 +36,7 @@
     </script>
 </head>
 
-<body class="bg-gray-50 dark:bg-slate-900 font-sans text-gray-800 dark:text-slate-50 overflow-hidden relative flex h-screen">
+<body class="bg-gray-50 font-sans text-gray-800 overflow-hidden relative flex h-screen">
 
     <!-- OVERLAY BLUR (Fondo Oscuro para Mobile al abrir el menú) -->
     <!-- Por defecto está oculto (hidden) y sin opacidad. -->
@@ -109,7 +108,7 @@
                 </svg>
                 <span class="font-medium whitespace-nowrap">Reportes</span>
             </a>
-            <a href="#"
+            <a href="../settings/setting.html"
                 class="flex items-center px-4 py-3 text-gray-300 hover:bg-sidebarHover hover:text-white rounded-lg transition-colors">
                 <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -124,7 +123,8 @@
 
         <!-- Opción Salir -->
         <div class="p-4 border-t border-sidebarHover w-full shrink-0">
-            <a href="../login/login.html" id="btn-logout" class="flex items-center px-4 py-3 text-gray-400 hover:bg-brandGray hover:text-white rounded-lg transition-colors">
+            <a href="../login/login.html" id="btn-logout"
+                class="flex items-center px-4 py-3 text-gray-400 hover:bg-brandGray hover:text-white rounded-lg transition-colors">
                 <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
@@ -159,11 +159,14 @@
             <!-- Derecha: Notificaciones y Perfil -->
             <div class="flex items-center gap-4 sm:gap-6">
                 <!-- Ícono Notificaciones -->
-                
-                        <button id="theme-toggle" class="group p-2 flex items-center justify-center text-gray-500 dark:text-slate-400 hover:text-brandPrimary hover:bg-orange-50 dark:hover:bg-slate-700/50 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-brandPrimary mr-2 shadow-sm border border-transparent dark:border-slate-700 bg-white dark:bg-slate-800">
-                            <!-- JS will dump SVG here -->
-                        </button>
-<button class="relative text-gray-400 hover:text-white transition-colors">
+
+                <button id="btn-refresh" title="Refrescar Pedidos"
+                    class="group p-2 flex items-center justify-center text-gray-500 hover:text-brandPrimary hover:bg-slate-700/50 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-brandPrimary mr-2 shadow-sm border border-transparent bg-white">
+                    <svg class="w-5 h-5 group-active:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                </button>
+                <button class="relative text-gray-400 hover:text-white transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
@@ -180,7 +183,8 @@
                         L
                     </div>
                     <div class="hidden md:block">
-                        <p class="text-sm font-semibold text-gray-200 group-hover:text-brandPrimary transition-colors" id="user-name-display">
+                        <p class="text-sm font-semibold text-gray-200 group-hover:text-brandPrimary transition-colors"
+                            id="user-name-display">
                             Cargando...
                         </p>
                         <p class="text-xs text-brandPrimary font-medium">Administrador</p>
@@ -200,7 +204,7 @@
 
                 <!-- 1. Cuadro de Saludo Responsivo -->
                 <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-6 sm:p-8 border-t-[4px] border-brandPrimary flex flex-col md:flex-row justify-between items-start md:items-center relative overflow-hidden gap-4 md:gap-0">
+                    class="bg-white rounded-2xl shadow-sm p-6 sm:p-8 border-t-[4px] border-brandPrimary flex flex-col md:flex-row justify-between items-start md:items-center relative overflow-hidden gap-4 md:gap-0">
                     <!-- Decoración Colibrí Gigante -->
                     <div class="absolute -right-16 -top-16 opacity-[0.03] pointer-events-none hidden sm:block">
                         <svg width="300" height="300" viewBox="0 0 100 100" fill="currentColor" class="text-sidebarBg">
@@ -212,8 +216,8 @@
                     </div>
 
                     <div class="relative z-10 w-full">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-slate-50 mb-1 sm:mb-2">¡Hola, bienvenido! 👋</h2>
-                        <p class="text-gray-500 dark:text-slate-400 text-sm sm:text-base">Este es un resumen del estado actual de los
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">¡Hola, bienvenido! 👋</h2>
+                        <p class="text-gray-500 text-sm sm:text-base">Este es un resumen del estado actual de los
                             pedidos y la plataforma.</p>
                     </div>
                     <!-- Botón acción rápida. En móvil tomará todo el ancho -->
@@ -230,16 +234,16 @@
                 </div>
 
                 <!-- 2. Tarjetas de Métricas -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Tarjeta: Pedidos Recibidos -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative group">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative group">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-sm font-medium text-gray-500 dark:text-slate-400 mb-1 line-clamp-1">Pedidos Recibidos</p>
-                                <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-slate-50">124</h3>
+                                <p class="text-sm font-medium text-gray-500 mb-1 line-clamp-1">Pedidos Recibidos</p>
+                                <h3 id="count-recibidos" class="text-3xl sm:text-4xl font-bold text-gray-800">...</h3>
                             </div>
                             <div
-                                class="p-3 bg-mainBgTop dark:bg-slate-800 rounded-lg text-brandPrimary group-hover:scale-110 transition-transform shrink-0">
+                                class="p-3 bg-gray-100 rounded-lg text-gray-600 group-hover:scale-110 transition-transform shrink-0">
                                 <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -247,27 +251,36 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="flex items-center text-xs sm:text-sm">
-                            <span class="text-green-500 font-medium flex items-center shrink-0">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    </div>
+
+                    <!-- Tarjeta: Pedidos Registrados -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-sm font-medium text-gray-500 mb-1 line-clamp-1">Pedidos Registrados</p>
+                                <h3 id="count-registrados" class="text-3xl sm:text-4xl font-bold text-gray-800">...</h3>
+                            </div>
+                            <div
+                                class="p-3 bg-yellow-50 rounded-lg text-yellow-600 group-hover:scale-110 transition-transform shrink-0">
+                                <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                                    </path>
                                 </svg>
-                                12%
-                            </span>
-                            <span class="text-gray-400 ml-2 truncate">vs. la semana pasada</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Tarjeta: Entregas Completadas -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
+                    <!-- Tarjeta: Pedidos Enviados -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-sm font-medium text-gray-500 dark:text-slate-400 mb-1 line-clamp-1">Entregas Completadas</p>
-                                <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-slate-50">89</h3>
+                                <p class="text-sm font-medium text-gray-500 mb-1 line-clamp-1">Pedidos Enviados</p>
+                                <h3 id="count-enviados" class="text-3xl sm:text-4xl font-bold text-gray-800">...</h3>
                             </div>
                             <div
-                                class="p-3 bg-red-50 rounded-lg text-brandGray group-hover:scale-110 transition-transform shrink-0">
+                                class="p-3 bg-green-50 rounded-lg text-green-600 group-hover:scale-110 transition-transform shrink-0">
                                 <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -275,28 +288,17 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="flex items-center text-xs sm:text-sm">
-                            <span class="text-red-500 font-medium flex items-center shrink-0">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                                </svg>
-                                3%
-                            </span>
-                            <span class="text-gray-400 ml-2 truncate">vs. ayer</span>
-                        </div>
                     </div>
 
                     <!-- Tarjeta: Nuevos Clientes -->
-                    <div
-                        class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group sm:col-span-2 lg:col-span-1">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow group">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-sm font-medium text-gray-500 dark:text-slate-400 mb-1 line-clamp-1">Nuevos Clientes</p>
-                                <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-slate-50">18</h3>
+                                <p class="text-sm font-medium text-gray-500 mb-1 line-clamp-1">Nuevos Clientes</p>
+                                <h3 id="count-clientes" class="text-3xl sm:text-4xl font-bold text-gray-800">...</h3>
                             </div>
                             <div
-                                class="p-3 bg-blue-50 rounded-lg text-[#2a5a5d] group-hover:scale-110 transition-transform shrink-0">
+                                class="p-3 bg-blue-50 rounded-lg text-blue-600 group-hover:scale-110 transition-transform shrink-0">
                                 <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -305,109 +307,61 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="flex items-center text-xs sm:text-sm">
-                            <span class="text-green-500 font-medium flex items-center shrink-0">
-                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                                </svg>
-                                8%
-                            </span>
-                            <span class="text-gray-400 ml-2 truncate">vs. el mes pasado</span>
-                        </div>
                     </div>
                 </div>
-
-                <!-- 3. Tabla de Ejemplo Responsiva -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm overflow-hidden mb-8">
-                    <div
-                        class="px-4 border-b border-gray-100 dark:border-slate-700 flex justify-between items-center py-4 flex-col sm:flex-row sm:px-6 gap-3 sm:gap-0">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-slate-50 w-full sm:w-auto text-center sm:text-left">
-                            Últimos Pedidos</h3>
-                        <a href="#"
-                            class="text-sm text-brandPrimary hover:underline font-medium w-full sm:w-auto text-center sm:text-right">Ver
-                            todos</a>
-                    </div>
-
-                    <!-- Contenedor con scroll en X para la tabla -->
-                    <div class="overflow-x-auto w-full">
-                        <!-- Clases min-w-full asegura que si no cabe en el ancho no se aplaste, sino scrollee -->
-                        <table class="w-full text-left border-collapse min-w-[700px]">
-                            <thead>
-                                <tr class="bg-gray-50/50 dark:bg-slate-800/50 text-xs uppercase tracking-wider text-gray-500 dark:text-slate-400">
-                                    <th class="px-6 py-4 font-medium">ID Pedido</th>
-                                    <th class="px-6 py-4 font-medium">Cliente</th>
-                                    <th class="px-6 py-4 font-medium">Agencia / Destino</th>
-                                    <th class="px-6 py-4 font-medium">Fecha</th>
-                                    <th class="px-6 py-4 font-medium">Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100 dark:divide-slate-700 text-sm">
-                                <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-700/50 dark:bg-slate-800/50 transition-colors">
-                                    <td class="px-6 py-4 font-medium text-sidebarBg">#PED-001</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div
-                                                class="h-8 w-8 rounded-full bg-orange-100 text-brandGray flex justify-center items-center font-bold mr-3 shadow-sm shrink-0">
-                                                MC</div>
-                                            <span class="text-gray-700 dark:text-slate-200 font-medium">María Carmen</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-600 dark:text-slate-300 truncate max-w-[150px]">Arequipa - Shalom</td>
-                                    <td class="px-6 py-4 text-gray-500 dark:text-slate-400 whitespace-nowrap">Hoy, 10:45 AM</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold whitespace-nowrap">Pendiente</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-700/50 dark:bg-slate-800/50 transition-colors">
-                                    <td class="px-6 py-4 font-medium text-sidebarBg">#PED-002</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div
-                                                class="h-8 w-8 rounded-full bg-mainBgTop dark:bg-slate-800 text-brandPrimary flex justify-center items-center font-bold mr-3 shadow-sm shrink-0">
-                                                JP</div>
-                                            <span class="text-gray-700 dark:text-slate-200 font-medium">Juan Pérez</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-600 dark:text-slate-300 truncate max-w-[150px]">Piura - Olva</td>
-                                    <td class="px-6 py-4 text-gray-500 dark:text-slate-400 whitespace-nowrap">Hoy, 09:30 AM</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold whitespace-nowrap">Completado</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-700/50 dark:bg-slate-800/50 transition-colors">
-                                    <td class="px-6 py-4 font-medium text-sidebarBg">#PED-003</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div
-                                                class="h-8 w-8 rounded-full bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 flex justify-center items-center font-bold mr-3 shadow-sm shrink-0">
-                                                AR</div>
-                                            <span class="text-gray-700 dark:text-slate-200 font-medium">Ana Reyes</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-600 dark:text-slate-300 truncate max-w-[150px]">Lima - Marvisur</td>
-                                    <td class="px-6 py-4 text-gray-500 dark:text-slate-400 whitespace-nowrap">Ayer, 16:15 PM</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 rounded-full text-xs font-semibold whitespace-nowrap">En
-                                            tránsito</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="flex items-center text-xs sm:text-sm">
+                    <span class="text-green-500 font-medium flex items-center shrink-0">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                        </svg>
+                        8%
+                    </span>
+                    <span class="text-gray-400 ml-2 truncate">vs. el mes pasado</span>
                 </div>
-
             </div>
+        </div>
+
+        <!-- 3. Tabla de Ejemplo Responsiva -->
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
+            <div
+                class="px-4 border-b border-gray-100 flex justify-between items-center py-4 flex-col sm:flex-row sm:px-6 gap-3 sm:gap-0">
+                <h3 class="text-lg font-semibold text-gray-800 w-full sm:w-auto text-center sm:text-left">
+                    Últimos Pedidos</h3>
+                <a href="../pedidos/pedidos.html"
+                    class="text-sm text-brandPrimary hover:underline font-medium w-full sm:w-auto text-center sm:text-right">Ver
+                    todos</a>
+            </div>
+
+            <!-- Contenedor con scroll en X para la tabla -->
+            <div class="overflow-x-auto w-full">
+                <!-- Clases min-w-full asegura que si no cabe en el ancho no se aplaste, sino scrollee -->
+                <table class="w-full text-left border-collapse min-w-[700px]">
+                    <thead>
+                        <tr class="bg-gray-50/50 text-xs uppercase tracking-wider text-gray-500">
+                            <th class="px-6 py-4 font-medium">ID Pedido</th>
+                            <th class="px-6 py-4 font-medium">Cliente</th>
+                            <th class="px-6 py-4 font-medium">Agencia / Destino</th>
+                            <th class="px-6 py-4 font-medium">Fecha</th>
+                            <th class="px-6 py-4 font-medium">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-orders-tbody" class="divide-y divide-gray-100 text-sm">
+                        <!-- JS inyecta aquí los pedidos recientes automáticamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        </div>
         </div>
     </main>
 
     <!-- SCRIPTS PARA RESPONSIVE Y BLUR (Barra Sandwich) -->
     <script src="js/sidebar.js"></script>
     <script type="module" src="js/auth.js"></script>
-    <script src="../js/theme.js"></script>
+    <script type="module" src="js/dashboardData.js"></script>
 </body>
 
 </html>
+```

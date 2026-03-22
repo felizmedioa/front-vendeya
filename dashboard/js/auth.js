@@ -15,6 +15,7 @@ export function setToken(token) {
 export function removeToken() {
     localStorage.removeItem('token');
     localStorage.removeItem('userConfigs');
+    sessionStorage.removeItem('pedidos_cache'); // Invalidar caché al salir
 }
 
 export function isTokenExpiredLocally(token) {
@@ -110,11 +111,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
+    // Identificar si la página actual es la de Configuraciones
+    const isSettingsPage = window.location.pathname.includes('/settings/setting.html');
+
     // 2. Revisar si ya tenemos las configuraciones del usuario cacheadas
     const cachedConfigs = localStorage.getItem('userConfigs');
     if (cachedConfigs) {
         window.userConfigs = JSON.parse(cachedConfigs);
         console.log("Configuraciones cargadas desde caché:", window.userConfigs);
+        
+        // Si el usuario no tiene configuraciones y no está en la página de Settings, lo forzamos a ir allá
+        if (!window.userConfigs.config && !isSettingsPage) {
+            window.location.href = '../settings/setting.html';
+            return;
+        }
+        
         document.documentElement.style.visibility = ''; // Mostrar UI instantáneamente
         return;
     }
@@ -146,6 +157,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     localStorage.setItem('userConfigs', JSON.stringify(userConfigs));
     window.userConfigs = userConfigs;
     console.log("Configuraciones cargadas desde api:", userConfigs);
+    
+    // Si el usuario no tiene configuraciones y no está en la página de Settings, lo forzamos a ir allá
+    if (!window.userConfigs.config && !isSettingsPage) {
+        window.location.href = '../settings/setting.html';
+        return;
+    }
     
     document.documentElement.style.visibility = '';
 });

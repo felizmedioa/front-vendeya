@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Soluciones Colibrí - Acceso</title>
-    <script>if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}</script>
-    <!-- Tailwind CSS desde el CDN para estilo sin configuración extra -->
+        <!-- Tailwind CSS desde el CDN para estilo sin configuración extra -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,11 +36,11 @@
 </head>
 
 <body
-    class="bg-gradient-to-b from-mainBgTop to-mainBgBottom dark:from-slate-900 dark:to-slate-800 min-h-screen flex flex-col m-0 p-0 relative font-sans text-gray-800 dark:text-slate-50">
+    class="bg-gradient-to-b from-mainBgTop to-mainBgBottom min-h-screen flex flex-col m-0 p-0 relative font-sans text-gray-800">
 
     <!-- Navegación Superior -->
     <nav
-        class="bg-white dark:bg-slate-800 px-8 py-4 flex justify-between items-center w-full shadow-[0_2px_10px_rgba(0,0,0,0.05)] relative z-10">
+        class="bg-white px-8 py-4 flex justify-between items-center w-full shadow-[0_2px_10px_rgba(0,0,0,0.05)] relative z-10">
         <!-- Lado Izquierdo: Logo y Título -->
         <a href="#" class="flex items-center gap-3 transition-opacity hover:opacity-80">
             <!-- Icono Colibrí (SVG Aproximado) -->
@@ -56,18 +55,19 @@
                 <!-- Cola -->
                 <path d="M45 80 L25 90 L35 70 Z" fill="#3A4D61" />
             </svg>
-            <span class="text-[22px] font-normal tracking-tight text-gray-900 dark:text-slate-50 mt-1">Soluciones Colibrí</span>
+            <span class="text-[22px] font-normal tracking-tight text-gray-900 mt-1">Soluciones
+                Colibrí</span>
         </a>
 
         <!-- Lado Derecho: Enlaces y Botón -->
         <div class="hidden md:flex items-center gap-7 text-[15px] font-medium mt-1">
-            <a href="#" class="text-sidebarBg hover:text-gray-900 dark:text-slate-50 transition-colors">
+            <a href="#" class="text-sidebarBg hover:text-gray-900 transition-colors">
                 Inicio
             </a>
-            <a href="#" class="text-sidebarBg hover:text-gray-900 dark:text-slate-50 transition-colors">
+            <a href="#" class="text-sidebarBg hover:text-gray-900 transition-colors">
                 Precios
             </a>
-            <a href="#" class="text-sidebarBg hover:text-gray-900 dark:text-slate-50 transition-colors">
+            <a href="#" class="text-sidebarBg hover:text-gray-900 transition-colors">
                 Contacto
             </a>
             <a href="#"
@@ -75,7 +75,7 @@
                 Registrarse
             </a>
         </div>
-        <button id="btn-menu" class="md:hidden block text-gray-800 dark:text-slate-50">
+        <button id="btn-menu" class="md:hidden block text-gray-800">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                 </path>
@@ -84,11 +84,15 @@
 
         <!-- Menú móvil (oculto por defecto) -->
         <div id="mobile-menu"
-            class="hidden md:hidden flex-col bg-white dark:bg-slate-800 absolute top-full left-0 w-full shadow-md z-20 border-t border-gray-100 dark:border-slate-700">
-            <a href="#" class="p-4 border-b hover:bg-gray-50 dark:hover:bg-slate-700 dark:bg-slate-900 transition-colors text-sidebarBg">Inicio</a>
-            <a href="#" class="p-4 border-b hover:bg-gray-50 dark:hover:bg-slate-700 dark:bg-slate-900 transition-colors text-sidebarBg">Precios</a>
-            <a href="#" class="p-4 border-b hover:bg-gray-50 dark:hover:bg-slate-700 dark:bg-slate-900 transition-colors text-sidebarBg">Contacto</a>
-            <a href="#" class="p-4 font-bold text-brandGrayOutline hover:bg-gray-50 dark:hover:bg-slate-700 dark:bg-slate-900 transition-colors">Registrarse</a>
+            class="hidden md:hidden flex-col bg-white absolute top-full left-0 w-full shadow-md z-20 border-t border-gray-100">
+            <a href="#"
+                class="p-4 border-b hover:bg-gray-50:bg-slate-700 transition-colors text-sidebarBg">Inicio</a>
+            <a href="#"
+                class="p-4 border-b hover:bg-gray-50:bg-slate-700 transition-colors text-sidebarBg">Precios</a>
+            <a href="#"
+                class="p-4 border-b hover:bg-gray-50:bg-slate-700 transition-colors text-sidebarBg">Contacto</a>
+            <a href="#"
+                class="p-4 font-bold text-brandGrayOutline hover:bg-gray-50:bg-slate-700 transition-colors">Registrarse</a>
         </div>
 
     </nav>
@@ -97,7 +101,7 @@
     <main class="flex-1 flex items-center justify-center margin-left-10 margin-right-10">
 
         <div
-            class="bg-white dark:bg-slate-800 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] w-full max-w-[400px] p-[2.3rem] flex flex-col items-center">
+            class="bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] w-full max-w-[400px] p-[2.3rem] flex flex-col items-center">
             <!-- Icono Colibrí en Centro -->
             <svg class="h-12 w-16 mb-4" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <!-- Ala (Turquesa / Arriba) -->
@@ -112,17 +116,18 @@
             </svg>
 
             <!-- Título -->
-            <h1 class="text-[26px] font-normal text-gray-900 dark:text-slate-50 mb-6 uppercase tracking-wide">Acceso</h1>
+            <h1 class="text-[26px] font-normal text-gray-900 mb-6 uppercase tracking-wide">Acceso
+            </h1>
 
             <!-- Formulario -->
             <form id="form" class="w-full space-y-[1.15rem]">
                 <div>
                     <input type="text" placeholder="Usuario" id="usuario" required
-                        class="w-full border border-gray-300 dark:border-slate-600 rounded-[5px] px-[18px] py-[10px] text-[15px] text-gray-700 dark:text-slate-200 bg-white dark:bg-slate-800 placeholder-gray-500 focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary transition-shadow">
+                        class="w-full border border-gray-300 rounded-[5px] px-[18px] py-[10px] text-[15px] text-gray-700 bg-white placeholder-gray-500 focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary transition-shadow">
                 </div>
                 <div>
                     <input type="password" placeholder="Contraseña" id="password" required
-                        class="w-full border border-gray-300 dark:border-slate-600 rounded-[5px] px-[18px] py-[10px] text-[15px] text-gray-700 dark:text-slate-200 bg-white dark:bg-slate-800 placeholder-gray-500 focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary transition-shadow">
+                        class="w-full border border-gray-300 rounded-[5px] px-[18px] py-[10px] text-[15px] text-gray-700 bg-white placeholder-gray-500 focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary transition-shadow">
                 </div>
 
                 <button type="submit"
@@ -144,7 +149,6 @@
     <script src="js/toggleMenu.js"></script>
     <script type="module" src="js/validToken.js"></script>
     <script type="module" src="js/getForms.js"></script>
-    <script src="../js/theme.js"></script>
 </body>
 
 </html>
