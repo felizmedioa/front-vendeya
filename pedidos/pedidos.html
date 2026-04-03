@@ -88,6 +88,14 @@
                 <span class="font-medium whitespace-nowrap">Pedidos</span>
             </a>
 
+            <a href="../formulario/formulario.html"
+                class="flex items-center px-4 py-3 text-gray-300 hover:bg-sidebarHover hover:text-white rounded-lg transition-colors">
+                <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span class="font-medium whitespace-nowrap">Formulario</span>
+            </a>
+
             <a href="#"
                 class="flex items-center px-4 py-3 text-gray-300 hover:bg-sidebarHover hover:text-white rounded-lg transition-colors">
                 <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,8 +179,11 @@
                     <!-- 1. Cabecera Principal de la Tarjeta -->
                     <div class="px-6 border-b border-gray-100 flex justify-between items-center py-5 sm:px-6">
                         <h3 class="text-xl font-semibold text-gray-800 tracking-wide">MIS PEDIDOS</h3>
-                        <button class="bg-brandGray hover:bg-brandGrayOutline text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-sm whitespace-nowrap">
-                            Nuevo Pedido
+                        <button id="btn-crear-formulario" onclick="generarLinkFormulario()" class="bg-brandGray hover:bg-brandGrayOutline text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-sm whitespace-nowrap flex items-center gap-2 cursor-pointer border-none">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            Crear Formulario
                         </button>
                     </div>
 
@@ -325,6 +336,83 @@
     <script src="../dashboard/js/sidebar.js"></script>
     <script src="../dashboard/js/auth.js" type="module"></script>
     <script src="js/getPedidos.js" type="module"></script>
+
+    <!-- Modal para mostrar el Link del Formulario -->
+    <div id="modal-link-formulario" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 space-y-4 animate-fade-in">
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-800">🔗 Link del Formulario</h3>
+                <button onclick="cerrarModalLink()" class="text-gray-400 hover:text-gray-600 cursor-pointer bg-transparent border-none text-xl">&times;</button>
+            </div>
+            <p class="text-sm text-gray-500">Comparte este enlace con tu cliente para que complete su pedido:</p>
+            <div class="flex items-center gap-2">
+                <input type="text" id="input-link-formulario" readonly
+                    class="flex-1 p-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700 select-all focus:outline-none">
+                <button onclick="copiarLinkFormulario()" id="btn-copiar-link"
+                    class="bg-brandGray hover:bg-brandGrayOutline text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer border-none whitespace-nowrap">
+                    📋 Copiar
+                </button>
+            </div>
+            <p id="msg-copiado" class="text-xs text-green-600 font-medium hidden">✅ ¡Link copiado al portapapeles!</p>
+        </div>
+    </div>
+
+    <script>
+        const FORM_BASE_URL = 'https://pedido-repartos-lima-provincia.vercel.app/pedidosForms/pedidosForms.html';
+
+        function generarLinkFormulario() {
+            // Obtener el user ID desde userConfigs (cargado por auth.js desde /user/me)
+            const configs = window.userConfigs;
+            if (!configs || !configs.config || !configs.config.id) {
+                alert('No se pudo obtener tu ID de usuario. Recarga la página e intenta de nuevo.');
+                return;
+            }
+
+            const userId = configs.config.id;
+            const link = `${FORM_BASE_URL}?id=${encodeURIComponent(userId)}`;
+
+            // Mostrar modal con el link
+            const modal = document.getElementById('modal-link-formulario');
+            const input = document.getElementById('input-link-formulario');
+            input.value = link;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            // Ocultar mensaje de copiado
+            document.getElementById('msg-copiado').classList.add('hidden');
+        }
+
+        function cerrarModalLink() {
+            const modal = document.getElementById('modal-link-formulario');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function copiarLinkFormulario() {
+            const input = document.getElementById('input-link-formulario');
+            navigator.clipboard.writeText(input.value).then(() => {
+                const msg = document.getElementById('msg-copiado');
+                msg.classList.remove('hidden');
+                // Cambiar texto del botón temporalmente
+                const btn = document.getElementById('btn-copiar-link');
+                btn.textContent = '✅ Copiado';
+                setTimeout(() => {
+                    btn.textContent = '📋 Copiar';
+                    msg.classList.add('hidden');
+                }, 2500);
+            }).catch(() => {
+                // Fallback para navegadores sin clipboard API
+                input.select();
+                document.execCommand('copy');
+                document.getElementById('msg-copiado').classList.remove('hidden');
+            });
+        }
+
+        // Cerrar modal al clickear fuera
+        document.getElementById('modal-link-formulario').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) cerrarModalLink();
+        });
+    </script>
     </body>
 
 </html>

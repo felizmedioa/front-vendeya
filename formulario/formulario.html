@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario - Soluciones Colibrí</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Configuración para mantener la paleta del login -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mainBgTop: '#f8fafc',
+                        mainBgBottom: '#f1f5f9',
+                        brandPrimary: '#f97316',
+                        brandPrimaryHover: '#ea580c',
+                        brandGray: '#334155',
+                        sidebarBg: '#0f172a', /* Deep Slate 900 */
+                        sidebarHover: '#1e293b', /* Slate 800 */
+                        brandGrayOutline: '#475569',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-800 overflow-hidden relative flex h-screen">
+
+    <!-- OVERLAY BLUR (Fondo Oscuro para Mobile al abrir el menú) -->
+    <div id="sidebar-overlay"
+        class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 md:hidden">
+    </div>
+
+    <!-- SIDEBAR LATERAL -->
+    <aside id="sidebar"
+        class="w-64 bg-sidebarBg flex flex-col text-white flex-shrink-0 transition-transform duration-300 ease-in-out fixed inset-y-0 left-0 z-50 transform -translate-x-full md:relative md:translate-x-0 shadow-2xl md:shadow-none">
+        
+        <div class="h-20 flex items-center justify-between px-6 border-b border-sidebarHover">
+            <div class="flex items-center">
+                <svg class="h-8 w-10 mr-3" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M45 55 L35 15 L60 40 Z" fill="#fdba74" />
+                    <path d="M45 55 L15 35 L60 40 Z" fill="#f97316" />
+                    <path d="M60 40 L85 30 L65 50 Z" fill="#4b5563" />
+                    <path d="M35 70 L60 40 L65 50 L45 80 Z" fill="#1f2937" />
+                    <path d="M45 80 L25 90 L35 70 Z" fill="#ffffff" />
+                </svg>
+                <span class="text-xl font-semibold tracking-tight">Colibrí</span>
+            </div>
+
+            <button id="close-sidebar"
+                class="md:hidden text-gray-300 hover:text-white focus:outline-none p-1 rounded transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Navegación -->
+        <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto w-full">
+            <!-- Items Inactivos -->
+            <a href="../dashboard/dashboard.html"
+                class="flex items-center px-4 py-3 text-gray-300 hover:bg-sidebarHover hover:text-white rounded-lg transition-colors">
+                <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                    </path>
+                </svg>
+                <span class="font-medium whitespace-nowrap">Dashboard</span>
+            </a>
+            
+            <a href="../pedidos/pedidos.html"
+                class="flex items-center px-4 py-3 text-gray-300 hover:bg-sidebarHover hover:text-white rounded-lg transition-colors">
+                <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+                <span class="font-medium whitespace-nowrap">Pedidos</span>
+            </a>
+
+            <!-- Item Activo: Formulario -->
+            <a href="#" class="flex items-center px-4 py-3 bg-brandPrimary text-white rounded-lg shadow-sm transition-colors border-l-4 border-[rgba(255,255,255,0.4)]">
+                <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span class="font-medium whitespace-nowrap">Formulario</span>
+            </a>
+
+            <a href="#"
+                class="flex items-center px-4 py-3 text-gray-300 hover:bg-sidebarHover hover:text-white rounded-lg transition-colors">
+                <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                    </path>
+                </svg>
+                <span class="font-medium whitespace-nowrap">Reportes</span>
+            </a>
+            <a href="../settings/setting.html"
+                class="flex items-center px-4 py-3 text-gray-300 hover:bg-sidebarHover hover:text-white rounded-lg transition-colors">
+                <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="font-medium whitespace-nowrap">Configuración</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-sidebarHover w-full shrink-0">
+            <a href="../login/login.html" id="btn-logout" class="flex items-center px-4 py-3 text-gray-400 hover:bg-brandGray hover:text-white rounded-lg transition-colors">
+                <svg class="w-5 h-5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                    </path>
+                </svg>
+                <span class="font-medium whitespace-nowrap">Cerrar Sesión</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-screen relative bg-gradient-to-br from-mainBgTop/20 to-mainBgBottom/20 overflow-hidden w-full">
+
+        <!-- Header Superior -->
+        <header class="h-20 bg-sidebarBg/95 backdrop-blur-md border-b border-sidebarHover shadow-[0_4px_20px_-10px_rgba(0,0,0,0.3)] flex items-center justify-between px-4 sm:px-8 z-10 shrink-0">
+            <div class="flex items-center gap-3">
+                <button id="open-sidebar" class="md:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-md transition-colors">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <h1 class="text-xl sm:text-2xl font-semibold text-white">FORMULARIO</h1>
+            </div>
+
+            <!-- Profile Area -->
+            <div class="flex items-center gap-4 sm:gap-6">
+                <button class="relative text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                    <span class="absolute top-0 right-0 h-2.5 w-2.5 bg-brandPrimary rounded-full border-2 border-sidebarBg"></span>
+                </button>
+                
+                <div class="flex items-center gap-3 border-l pl-4 sm:pl-6 border-sidebarHover cursor-pointer group">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brandPrimary flex items-center justify-center text-white font-bold shadow-md group-hover:bg-brandPrimaryHover transition-colors shrink-0 ring-2 ring-sidebarBg">
+                        L
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 overflow-y-auto p-4 sm:p-8">
+            <div class="max-w-4xl mx-auto space-y-8">
+
+                <!-- Tarjeta Principal: Link del Formulario -->
+                <div class="bg-white rounded-2xl shadow-sm border-t-[4px] border-brandPrimary overflow-hidden">
+                    <div class="px-6 sm:px-8 py-6 border-b border-gray-100">
+                        <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                            <svg class="w-6 h-6 text-brandPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                            </svg>
+                            Link de tu Formulario
+                        </h2>
+                        <p class="text-sm text-gray-500 mt-1">Comparte este enlace con tus clientes para que puedan realizar sus pedidos directamente.</p>
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <!-- Link display -->
+                        <div class="space-y-4">
+                            <label class="block text-sm font-semibold text-gray-700">Tu enlace personalizado</label>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <div class="relative flex-1">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                                        </svg>
+                                    </div>
+                                    <input type="text" id="formulario-link" readonly
+                                        class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-brandPrimary focus:border-brandPrimary transition-colors shadow-sm text-sm font-mono select-all cursor-text"
+                                        value="Cargando...">
+                                </div>
+                                <button id="btn-copy-link"
+                                    class="bg-brandGray hover:bg-brandGrayOutline text-white px-6 py-3 rounded-lg text-sm font-medium transition-colors shadow-sm flex items-center gap-2 justify-center shrink-0">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                    </svg>
+                                    Copiar Link
+                                </button>
+                            </div>
+
+                            <!-- Info de ayuda -->
+                            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-amber-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="text-sm font-semibold text-amber-800">¿Cómo usar este enlace?</p>
+                                        <p class="text-sm text-amber-700 mt-1">Copia el enlace y compártelo con tus clientes a través de WhatsApp, redes sociales, o cualquier otro medio. Los pedidos que ingresen a través de este formulario se registrarán automáticamente en tu panel.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPTS PARA RESPONSIVE -->
+    <script src="../dashboard/js/sidebar.js"></script>
+    <script type="module" src="../dashboard/js/auth.js"></script>
+    <script type="module" src="js/formulario.js"></script>
+</body>
+
+</html>

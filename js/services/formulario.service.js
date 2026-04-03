@@ -14,7 +14,7 @@ export function inicializarFormulario() {
 
     const seccionLima = document.getElementById('seccionLima');
     const seccionProvincia = document.getElementById('seccionProvincia');
-    const inputDireccion = document.getElementById('direccion_link');
+    // const inputDireccion = document.getElementById('direccion_link'); // REMOVIDO: ya no existe en el HTML
     const inputAgencia = document.getElementById('agencia_provincia');
 
     tipoEnvio.addEventListener('change', () => {
@@ -24,14 +24,14 @@ export function inicializarFormulario() {
         seccionLima.classList.add('hidden');
         seccionProvincia.classList.add('hidden');
         
-        inputDireccion.required = false;
+        // inputDireccion.required = false; // REMOVIDO
         distritoSelect.required = false;
         inputAgencia.required = false;
 
         // Mostrar la sección correspondiente y volver campos obligatorios
         if (tipo === 'Lima') {
             seccionLima.classList.remove('hidden');
-            inputDireccion.required = true;
+            // inputDireccion.required = true; // REMOVIDO
             distritoSelect.required = true;
             invalidarTamano();
 

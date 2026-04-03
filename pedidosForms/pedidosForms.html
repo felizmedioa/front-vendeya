@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pedido - Spitech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/modal-responsive.css" />
+    <style>
+        #mapa-selector {
+            height: 300px;
+            width: 100%;
+            border-radius: 0.5rem;
+            z-index: 0;
+        }
+
+        .leaflet-container {
+            font-family: sans-serif;
+        }
+
+        /* Estilo para la lista de distritos con precio */
+        .distrito-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .distrito-item:hover {
+            background: #eff6ff;
+        }
+        .distrito-item.selected {
+            background: #dbeafe;
+            border-left: 3px solid #2563eb;
+        }
+        .distrito-precio {
+            font-weight: 600;
+            color: #1d4ed8;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        /* Estilo para la lista de agencias inline */
+        .agencia-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #f3f4f6;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .agencia-item:hover {
+            background: #fff7ed;
+        }
+        .agencia-item.selected {
+            background: #ffedd5;
+            border-left: 3px solid #f97316;
+        }
+
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-start min-h-screen p-6">
+
+    <div class="w-full max-w-3xl bg-white p-8 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-2 text-gray-800">Registro de Pedido</h2>
+        <p class="text-sm text-gray-500 mb-6">Completa los datos para coordinar tu entrega.</p>
+
+        <form id="pedidoForm" class="space-y-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Nombre completo *</label>
+                    <input type="text" id="nombre_completo" required class="w-full p-2 border rounded mt-1">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">DNI *</label>
+                    <input type="text" id="dni" required class="w-full p-2 border rounded mt-1">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">WhatsApp *</label>
+                <input type="text" id="whatsapp" required placeholder="+51..." class="w-full p-2 border rounded mt-1">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Producto *</label>
+                <input type="text" id="producto" required class="w-full p-2 border rounded mt-1">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Método de Pago *</label>
+                    <select id="metodo_pago" required class="w-full p-2 border rounded mt-1">
+                        <option value="Yape">Yape</option>
+                        <option value="Plin">Plin</option>
+                        <option value="Transferencia">Transferencia</option>
+                        <option value="Tarjeta">Tarjeta (5% recargo)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Monto Restante (S/)</label>
+                    <input type="number" id="valor_restante" step="0.1" required class="w-full p-2 border rounded mt-1">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Fecha *</label>
+                    <input type="date" id="fecha" required class="w-full p-2 border rounded mt-1">
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- AGENCIA (reemplaza a "Tipo de Envío") -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Agencia *</label>
+                <select id="agencia_select" required class="w-full p-2 border rounded mt-1 font-bold text-blue-800">
+                    <option value="">Seleccione...</option>
+                    <option value="retiro_tienda">Retiro en Tienda</option>
+                    <option value="dinsides">Dinsides</option>
+                    <option value="shalom">Shalom</option>
+                    <option value="olva">Olva Courier</option>
+                    <option value="marvisur">Marvisur</option>
+                    <option value="delivery">Delivery</option>
+                </select>
+            </div>
+
+            <!-- ============================================ -->
+            <!--  SECCIÓN: DELIVERY (Mapa + Distrito)         -->
+            <!-- ============================================ -->
+            <div id="seccionDelivery" class="hidden space-y-4 border p-4 rounded bg-blue-50">
+                <h3 class="font-bold text-blue-800">📍 Ubicación de Entrega (Delivery)</h3>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Distrito *</label>
+                    <select id="distrito_lima" class="w-full p-2 border rounded mt-1 bg-white">
+                        <option value="">Selecciona tu distrito...</option>
+                        <option value="Ancón">Ancón</option>
+                        <option value="Ate">Ate</option>
+                        <option value="Barranco">Barranco</option>
+                        <option value="Bellavista">Bellavista</option>
+                        <option value="Breña">Breña</option>
+                        <option value="Carabayllo">Carabayllo</option>
+                        <option value="Carmen de La Legua">Carmen de La Legua</option>
+                        <option value="Cercado de Lima">Cercado de Lima</option>
+                        <option value="Chaclacayo">Chaclacayo</option>
+                        <option value="Chorrillos">Chorrillos</option>
+                        <option value="Cieneguilla">Cieneguilla</option>
+                        <option value="Comas">Comas</option>
+                        <option value="El Agustino">El Agustino</option>
+                        <option value="Independencia">Independencia</option>
+                        <option value="Jesús María">Jesús María</option>
+                        <option value="La Molina">La Molina</option>
+                        <option value="La Perla">La Perla</option>
+                        <option value="La Punta">La Punta</option>
+                        <option value="La Victoria">La Victoria</option>
+                        <option value="Los Olivos">Los Olivos</option>
+                        <option value="Lince">Lince</option>
+                        <option value="Lurigancho">Lurigancho (Chosica)</option>
+                        <option value="Lurín">Lurín</option>
+                        <option value="Magdalena del Mar">Magdalena del Mar</option>
+                        <option value="Mi Perú">Mi Perú</option>
+                        <option value="Miraflores">Miraflores</option>
+                        <option value="Pachacámac">Pachacámac</option>
+                        <option value="Pucusana">Pucusana</option>
+                        <option value="Pueblo Libre">Pueblo Libre</option>
+                        <option value="Puente Piedra">Puente Piedra</option>
+                        <option value="Punta Hermosa">Punta Hermosa</option>
+                        <option value="Punta Negra">Punta Negra</option>
+                        <option value="Rímac">Rímac</option>
+                        <option value="San Borja">San Borja</option>
+                        <option value="San Isidro">San Isidro</option>
+                        <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
+                        <option value="San Juan de Miraflores">San Juan de Miraflores</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="San Miguel">San Miguel</option>
+                        <option value="San Martín de Porres">San Martín de Porres</option>
+                        <option value="San Bartolo">San Bartolo</option>
+                        <option value="Santa Anita">Santa Anita</option>
+                        <option value="Santa María del Mar">Santa María del Mar</option>
+                        <option value="Santa Rosa">Santa Rosa</option>
+                        <option value="Santiago de Surco">Santiago de Surco</option>
+                        <option value="Surquillo">Surquillo</option>
+                        <option value="Ventanilla">Ventanilla</option>
+                        <option value="Villa El Salvador">Villa El Salvador</option>
+                        <option value="Villa María del Triunfo">Villa María del Triunfo</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Mueve el Pin 📍 a tu ubicación exacta:</label>
+                    <div id="mapa-selector"></div>
+                </div>
+
+                <input type="hidden" id="latitud">
+                <input type="hidden" id="longitud">
+            </div>
+
+            <!-- ============================================ -->
+            <!--  SECCIÓN: DINSIDES (Distritos con precio)    -->
+            <!-- ============================================ -->
+            <div id="seccionDinsides" class="hidden space-y-3 border p-4 rounded bg-indigo-50">
+                <h3 class="font-bold text-indigo-800">🏍️ Dinsides — Selecciona tu Distrito</h3>
+                <p class="text-xs text-indigo-600">Elige el distrito de entrega. El precio incluye recojo y entrega.</p>
+                
+                <!-- Buscador de distritos -->
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </span>
+                    <input type="text" id="buscarDistritoDinsides" placeholder="Buscar distrito..."
+                        class="w-full pl-10 pr-3 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-400">
+                </div>
+
+                <div id="listaDistritosDinsides" class="max-h-72 overflow-y-auto rounded-lg border border-gray-200 bg-white">
+                    <!-- Se llena dinámicamente -->
+                </div>
+                <input type="hidden" id="distrito_dinsides_value">
+            </div>
+
+            <!-- ============================================ -->
+            <!--  SECCIÓN: SHALOM (Lista de agencias)         -->
+            <!-- ============================================ -->
+            <div id="seccionShalom" class="hidden space-y-3 border p-4 rounded bg-red-50">
+                <h3 class="font-bold text-red-800">📦 Shalom — Selecciona tu Agencia</h3>
+                <p class="text-xs text-red-600">Busca y selecciona la agencia Shalom más cercana a tu destino.</p>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </span>
+                    <input type="text" id="buscarAgenciaShalom" placeholder="Buscar agencia Shalom..."
+                        class="w-full pl-10 pr-3 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-red-400">
+                </div>
+
+                <div id="listaAgenciasShalom" class="max-h-72 overflow-y-auto rounded-lg border border-gray-200 bg-white">
+                    <!-- Se llena dinámicamente -->
+                </div>
+                <input type="hidden" id="agencia_shalom_value">
+            </div>
+
+            <!-- ============================================ -->
+            <!--  SECCIÓN: OLVA (Lista de agencias)           -->
+            <!-- ============================================ -->
+            <div id="seccionOlva" class="hidden space-y-3 border p-4 rounded bg-yellow-50">
+                <h3 class="font-bold text-yellow-800">📦 Olva Courier — Selecciona tu Agencia</h3>
+                <p class="text-xs text-yellow-700">Busca y selecciona la agencia Olva más cercana a tu destino.</p>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </span>
+                    <input type="text" id="buscarAgenciaOlva" placeholder="Buscar agencia Olva..."
+                        class="w-full pl-10 pr-3 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-yellow-400">
+                </div>
+
+                <div id="listaAgenciasOlva" class="max-h-72 overflow-y-auto rounded-lg border border-gray-200 bg-white">
+                    <!-- Se llena dinámicamente -->
+                </div>
+                <input type="hidden" id="agencia_olva_value">
+            </div>
+
+            <!-- ============================================ -->
+            <!--  SECCIÓN: MARVISUR (Lista de agencias)       -->
+            <!-- ============================================ -->
+            <div id="seccionMarvisur" class="hidden space-y-3 border p-4 rounded bg-gray-100">
+                <h3 class="font-bold text-gray-800">📦 Marvisur — Selecciona tu Agencia</h3>
+                <p class="text-xs text-gray-600">Busca y selecciona la agencia Marvisur más cercana a tu destino.</p>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </span>
+                    <input type="text" id="buscarAgenciaMarvisur" placeholder="Buscar agencia Marvisur..."
+                        class="w-full pl-10 pr-3 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-gray-400">
+                </div>
+
+                <div id="listaAgenciasMarvisur" class="max-h-72 overflow-y-auto rounded-lg border border-gray-200 bg-white">
+                    <!-- Se llena dinámicamente -->
+                </div>
+                <input type="hidden" id="agencia_marvisur_value">
+            </div>
+
+            <!-- ============================================ -->
+            <!--  SECCIÓN: RETIRO EN TIENDA                   -->
+            <!-- ============================================ -->
+            <div id="seccionRetiro" class="hidden space-y-3 border p-4 rounded bg-green-50">
+                <h3 class="font-bold text-green-800">🏪 Retiro en Tienda</h3>
+                <p class="text-xs text-green-600">Escribe el nombre o dirección de la tienda donde recogerás tu pedido.</p>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Tienda *</label>
+                    <input type="text" id="retiro_tienda_input" placeholder="Ej: Tienda Central Lima, Av. Garcilaso 1250..."
+                        class="w-full p-2 border rounded mt-1 bg-white">
+                </div>
+            </div>
+
+            <button type="submit" id="btnSubmit"
+                class="w-full bg-black text-white font-bold py-3 rounded hover:bg-gray-800 transition shadow-lg mt-6">
+                Registrar Pedido
+            </button>
+
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="js/pedidosForms.js"></script>
+
+</body>
+
+</html>

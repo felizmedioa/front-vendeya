@@ -42,7 +42,8 @@ function recolectarDatosFormulario() {
         fecha: document.getElementById('fecha').value,
         tipo_envio: document.getElementById('tipo_envio').value,
         distrito: document.getElementById('distrito_lima').value,
-        direccion_link: document.getElementById('direccion_link').value,
+        // direccion_link: document.getElementById('direccion_link').value, // REMOVIDO: input ya no existe
+        direccion_link: 'Ubicación seleccionada en mapa',
         lat: document.getElementById('latitud').value,
         lng: document.getElementById('longitud').value,
         agencia: document.getElementById('agencia_value').value
@@ -89,6 +90,10 @@ export function inicializarEnvio() {
         }
         if (data.tipo_envio === 'Lima' && !data.distrito) {
             alert('❌ Por favor, selecciona el Distrito de entrega antes de registrar el pedido.');
+            return;
+        }
+        if (data.tipo_envio === 'Lima' && (!data.lat || !data.lng)) {
+            alert('❌ Por favor, mueve el pin en el mapa para marcar tu ubicación exacta de entrega.');
             return;
         }
 
