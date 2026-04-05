@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Todas las secciones condicionales
     const secciones = {
-        delivery:      document.getElementById('seccionDelivery'),
-        dinsides:      document.getElementById('seccionDinsides'),
-        shalom:        document.getElementById('seccionShalom'),
-        olva:          document.getElementById('seccionOlva'),
-        marvisur:      document.getElementById('seccionMarvisur'),
+        delivery: document.getElementById('seccionDelivery'),
+        dinsides: document.getElementById('seccionDinsides'),
+        shalom: document.getElementById('seccionShalom'),
+        olva: document.getElementById('seccionOlva'),
+        marvisur: document.getElementById('seccionMarvisur'),
         retiro_tienda: document.getElementById('seccionRetiro'),
     };
 
@@ -176,7 +176,7 @@ async function handleSubmit(formId) {
     btnSubmit.textContent = 'Enviando...';
 
     try {
-        const response = await fetch(`${URL_BACKEND}/pedidos-forms/${formId}`, {
+        const response = await fetch(`${URL_BACKEND}/pedidos-forms?id_usuario=${formId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
